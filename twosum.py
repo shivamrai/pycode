@@ -1,17 +1,16 @@
-def twoSum(self, nums, target):
-    sum=0
-    for i in range(0,len(nums)):
-        if(sum == target):
-            break
-        elif(sum > target):
-           target=0
-           continue 
-        else:
-            sum = sum+target
-            continue
-        i=i+1
-    return sum
 
-nums=[11, 15, 2, 7]
-sum = twoSum(1,nums,9)
-print(sum)
+def twoSum(givenList, target):
+        listanswer = []
+        for i,i1 in enumerate(givenList):
+            for j,j1 in enumerate(givenList):
+                if(i1+j1 == target and i != j):
+                    listanswer.append(i)
+                    listanswer.append(j)
+                    break
+            return listanswer
+
+listA=[3,2,4]
+sum = 5
+listB = []
+listB = twoSum(listA, sum)
+print(listB)
