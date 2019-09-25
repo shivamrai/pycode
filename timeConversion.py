@@ -2,12 +2,15 @@ def timeConversion(s):
     #
     # Write your code here.
     #
+    n = s
     if(s[-2:] == 'PM'):
-        if(s[0:2] != '12'):
-            s[0:2].replace('12','00')
-        else:
-            s[0:2].replace(s[0:2], s[0:2]+12)
-    return s[:-2]
+        if(s[0:2]!='12'):
+            n = str(int(s[:2]) + 12)+s[2:8]
+            #print(n)
+    else:
+        if(s[0:2]=='12'):
+            n = s.replace(s[0:2],'00')
+    return n[:-2]
 
 input = "07:05:45PM"
 # print(input[-2:])
