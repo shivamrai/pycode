@@ -5,12 +5,11 @@ def hourglassSum(arr):
     i = 0 
     j = 0 
     k = 0
-    for i in range(len(arr)):
-        for j in range(len(arr[0])):
-                largestSum = arr[j,k]+arr[j,k+1]+arr[j,k+2]+arr[j+1,k+1]+arr[j+2,k]+arr[j+2,k+1]+arr[j+2,k+2]
-                
-    if(largestSum<currentSum):
-            largestSum = currentSum
+    for j in range(0,4):
+        for k in range(0,4):
+                currentSum = arr[j][k]+arr[j][k+1]+arr[j][k+2]+arr[j+1][k+1]+arr[j+2][k]+arr[j+2][k+1]+arr[j+2][k+2]
+                if(largestSum<currentSum):
+                    largestSum = currentSum
     return largestSum
 
 if __name__ == "__main__":
@@ -18,4 +17,5 @@ if __name__ == "__main__":
     # print(arr)
     arr = [[1, 1, 1, 0, 0, 0], [0, 1, 0, 0, 0, 0], [1, 1, 1, 0, 0, 0], [0, 0, 2, 4, 4, 0], [0, 0, 0, 2, 0, 0], [0, 0, 1, 2, 4, 0]]
     print(arr)
-    largestsum = hourglassSum(arr)
+    largestSum = hourglassSum(arr)
+    print(largestSum)
