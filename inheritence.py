@@ -15,7 +15,7 @@ class Student(Person):
     #   firstName - A string denoting the Person's first name.
     #   lastName - A string denoting the Person's last name.
     #   id - An integer denoting the Person's ID number.
-    #   scores - An array of integers denoting the Person's test scores.
+    #   scores - An array of integers denoting thttps://tara.vitapowered.com/workflowengine/workflow/SDE_University/start/5546f193-1f77-40a2-9db3-89f79c0b5e02he Person's test scores.
     #
     # Write your constructor here
     def __init__(self, firstName, lastName, idNumber, scores):
