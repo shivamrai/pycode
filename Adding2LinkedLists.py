@@ -8,7 +8,6 @@ class Solution:
         
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         carry = 0
-        link_next = None
         linkedListSum = None
         first = None
         while l1 or l2 or carry:
