@@ -25,5 +25,6 @@ def validPyramid(A: list) -> bool:
             j+=1
     return validPyramidBool
 if __name__ == "__main__":
+    #https://leetcode.com/problems/valid-mountain-array/
     listA=[2,1]
     print(validPyramid(listA))
