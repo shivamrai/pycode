@@ -105,3 +105,6 @@ WHERE
 ORDER BY 
     tables.table_name ASC,
     columns.ordinal_position ASC;
+
+
+SELECT title,id from movies where id in (SELECT movie_id from movie_rating where )
