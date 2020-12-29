@@ -34,8 +34,8 @@ class LRUCache:
             return -1
     
     def add(self, Node):
-        node.prev = self.head
-        node.next = self.head.next
+        Node.prev = self.head
+        Node.next = self.head.next
         self.head.next = Node
         Node.next.prev = Node
 

@@ -1,1 +1,2 @@
-u
+def uniqueList(head):
+        
