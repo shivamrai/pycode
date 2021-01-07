@@ -63,12 +63,12 @@ class SinglyLinkedList:
 
 
     def remove(self,val):
-        if self.head is None:
+        if self.isEmpty():
             return "List is empty, nothing to remove"
         current =  self.head
         previous = None
         found = False
-        while(!found):
+        while(not found):
             if(current.getval()==val):
                 found = True
             else:
@@ -81,7 +81,6 @@ class SinglyLinkedList:
             self.head = current.getnext()
         else:
             previous.setnext(current.getnext())
-            
         return found
 
 

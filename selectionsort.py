@@ -10,14 +10,13 @@ def selectionsort(unsortedlist):
     for i in range(len(unsortedlist)):
         min = i
         for j in range(len(unsortedlist)):
-            if a[min] < a[j]:
-                swap = a[min]
-                a[min] = unsortedlist[j]
+            if unsortedlist[min] < unsortedlist[j]:
+                swap = unsortedlist[min]
+                unsortedlist[min] = unsortedlist[j]
                 unsortedlist[j] = swap
-            else:
-                pass
+
     return unsortedlist
             
-a = [5,2,7,1,4]
+a = [5,2,3,1]
 b = selectionsort(a)
 print("Sorted list",b)

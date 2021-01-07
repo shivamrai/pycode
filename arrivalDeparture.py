@@ -5,7 +5,12 @@ def arrivalDep(arr, dep):
     for i in range(0, len(dep)-1):
         dict1[dep[i]] = 'dep'
     #dict1.keys()
-    #sorted(dict1)
+        sorted(dict1)
+
+    maxPlatforms = 0
+    for k,v in dict1.items():
+        if(v=='arr'):
+            
     print(dict1)
 
 if __name__ == "__main__":
