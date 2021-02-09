@@ -1,22 +1,20 @@
 class Solution:
     def calPoints(self, ops: list) -> int:
         record = []
-        opA = 0
-        opB = 0
         for i in range(len(ops)):
             if(ops[i]=='+'):
-                opA = record[-1]
-                opB = record[-2]
-                record.append((opA)+(opB))
+                record.append((record[-1])+(record[-2]))
             elif(ops[i]=='D'):
-                opA = record[-1]
-                record.append(2*(opA))
+                record.append(2*(record[-1]))
             elif(ops[i]=='C'):
                 record.pop()
             else:
                 record.append(int(ops[i]))
-        return record
-                
+        #return record
+        score = 0
+        for rec in record:
+            score+=rec
+        return score
         
                 
 if __name__ == "__main__":

@@ -1,5 +1,19 @@
-def maxSubArray(nums):
-    #subArray = []
+class Solution():
+    def maxSubArray(self, nums):
+    #bottom up dp
+    #kadane's algorithm with DP, decide to take the current subarray sum or start a new subarray
+    # in the below example, when 4 is encountered the equation max of dp[i-1]+nums[i], nums[i] latter is greater
+    # Hence we start a new subarray and this is the continuatioon of subproblem
+        dp = [0]*len(nums)
+        for i in range(0,len(nums)):
+            dp[i] = max(dp[i-1]+nums[i],nums[i]) 
+        return max(dp)                     
+if __name__ == "__main__":
+    x = Solution()
+    #print(x.maxSubArray([-2,1]))
+    print(x.maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+
+   #subArray = []
     # maxTotal = -64
     # if(len(nums)<2):
     #     return sum(nums)
@@ -19,9 +33,3 @@ def maxSubArray(nums):
     #         #print(subArray)
     #         if(total>maxTotal): maxTotal = total
     # return maxTotal
-    dp = [0]*len(nums)
-    for i in range(0,len(nums)):
-        dp[i] = max(dp[i-1]+nums[i],nums[i]) 
-    return max(dp)       
-if __name__ == "__main__":
-    print(maxSubArray([-2,1]))

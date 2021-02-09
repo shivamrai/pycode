@@ -1,4 +1,5 @@
-class Solution:
+import unittest
+class Solution():
     def partitionLabels(self, S: str) -> list:
         #keep track of end Index
         
@@ -15,7 +16,13 @@ class Solution:
                 res.append(i-start+1)
                 start = i+1
         
-        return res    
+        return res  
+
+class TestSolution(unittest.TestCase):
+    def testpartitionlabels(self):
+        x = Solution()
+        res = x.partitionLabels("ababcbacadefegdehijhklij")
+        self.assertEqual(res,[9,7,8])
+
 if __name__ == "__main__":
-    x = Solution()
-    print(x.partitionLabels("ababcbacadefegdehijhklij"))
+    unittest.main()
