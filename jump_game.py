@@ -22,8 +22,10 @@ class Solution:
         # Greedy approach to check if we can reach the last index
         max_reachable = 0
         for i in range(len(nums)):
+            # If the current index is greater than the maximum reachable index, we cannot proceed
             if i > max_reachable:
                 return False
+            # Update the maximum reachable index
             max_reachable = max(max_reachable, i + nums[i])
         return True
     
