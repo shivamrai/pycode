@@ -24,10 +24,12 @@ class Solution:
         min_length = float('inf')
         while end < len(nums):
             subarray_sum += nums[end]
-            
+            print(f"Adding {nums[end]} to subarray sum: {subarray_sum}")
             while subarray_sum >= target:
                 min_length = min(min_length, end - start + 1)
                 subarray_sum -= nums[start]
+                print(f"Subarray sum >= target, updating min_length: {min_length}, removing {nums[start]} from sum")
+                print(f"New subarray sum after removing {nums[start]}: {subarray_sum}")
                 start += 1
             end += 1
         return min_length if min_length != float('inf') else 0
