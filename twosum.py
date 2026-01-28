@@ -4,7 +4,7 @@ class TwoSum:
         listanswer = []
         for i, i1 in enumerate(givenList):
             for j, j1 in enumerate(givenList):
-                if (i1 + j1 == target and i != j):
+                if i1 + j1 == target and i != j:
                     listanswer.append(i)
                     listanswer.append(j)
                     break
@@ -26,6 +26,7 @@ class TwoSum:
         sum = 5
         listB = TwoSum.twoSum(listA, sum)
         print(listB)
+
 
 if __name__ == "__main__":
     TwoSum.main()

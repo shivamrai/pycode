@@ -1,15 +1,15 @@
 # Altenative thread Sync using Python event thread
 import threading
+
+
 class FooBar:
     def __init__(self, n):
         self.n = n
         self.ev_foo = threading.Event()
         self.ev_bar = threading.Event()
-        
 
+    def foo(self, printFoo: "Callable[[], None]") -> None:
 
-    def foo(self, printFoo: 'Callable[[], None]') -> None:
-        
         for i in range(self.n):
             if self.ev_foo.is_set():
                 self.ev_bar.wait()
@@ -18,9 +18,8 @@ class FooBar:
             printFoo()
             self.ev_foo.set()
 
+    def bar(self, printBar: "Callable[[], None]") -> None:
 
-    def bar(self, printBar: 'Callable[[], None]') -> None:
-        
         for i in range(self.n):
             self.ev_foo.wait()
             # printBar() outputs "bar". Do not change or remove this line.

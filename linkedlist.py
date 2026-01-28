@@ -1,8 +1,8 @@
 class Node:
-    def __init__(self,val):
+    def __init__(self, val):
         self.val = val
-        self.next  = None
-    
+        self.next = None
+
     def __repr__(self):
         return "Node data is = {}".format(self.val)
 
@@ -14,19 +14,20 @@ class Node:
         self.val = new_val
 
     def getnext(self):
-        """"Return next attribute"""
+        """ "Return next attribute"""
         return self.next
 
-    def setnext(self,new_next):
-        """"new next"""
+    def setnext(self, new_next):
+        """ "new next"""
         self.next = new_next
+
 
 class SinglyLinkedList:
 
     def __init__(self):
         self.head = None
-        #self.length = 0
-    
+        # self.length = 0
+
     def __repr__(self):
         return "SLL object: head={}".format(self.head)
 
@@ -34,7 +35,7 @@ class SinglyLinkedList:
         """returns true if linked list is empty"""
         return self.head is None
 
-    def addFront(self,val):
+    def addFront(self, val):
         temp = Node(val)
         temp.setnext(self.head)
         self.head = temp
@@ -44,40 +45,39 @@ class SinglyLinkedList:
         if self.head is None:
             return size
         current = self.head
-        while(current): #while there are nodes to count
+        while current:  # while there are nodes to count
             size += 1
-            #current = current.next
-            current= current.getnext()
+            # current = current.next
+            current = current.getnext()
         return size
 
-    def search(self,searchterm):
+    def search(self, searchterm):
         if self.head is None:
             return "Linked list is empty, no nodes to search"
         current = self.head
-        while(current):
-            if(current.getval()==searchterm):
+        while current:
+            if current.getval() == searchterm:
                 return True
             else:
                 current = current.getnext()
         return False
 
-
-    def remove(self,val):
+    def remove(self, val):
         if self.isEmpty():
             return "List is empty, nothing to remove"
-        current =  self.head
+        current = self.head
         previous = None
         found = False
-        while(not found):
-            if(current.getval()==val):
+        while not found:
+            if current.getval() == val:
                 found = True
             else:
-                if(current.getnext()==None):
+                if current.getnext() is None:
                     return "Node not found"
                 else:
-                    previous  = current
+                    previous = current
                     current = current.getnext()
-        if(previous is None):
+        if previous is None:
             self.head = current.getnext()
         else:
             previous.setnext(current.getnext())
@@ -97,7 +97,7 @@ if __name__ == "__main__":
     print(sll.isEmpty())
     sll.head = node1
     print(sll.isEmpty())
-    sll.addFront('Barry')
+    sll.addFront("Barry")
     print(sll.head)
     print(sll.size())
-    print(sll.search('barry'))
+    print(sll.search("barry"))

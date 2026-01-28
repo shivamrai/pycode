@@ -5,29 +5,30 @@ def countApplesAndOranges(s, t, a, b, apples, oranges):
     for apple in range(len(apples)):
         apples[apple] = apples[apple] + a
     for orange in range(len(oranges)):
-        oranges[orange]=oranges[orange] + b
+        oranges[orange] = oranges[orange] + b
     for apple in range(len(apples)):
-        if(apples[apple]>=s and apples[apple]<=t):
-            countofApples = countofApples+1
+        if apples[apple] >= s and apples[apple] <= t:
+            countofApples = countofApples + 1
     for orange in range(len(oranges)):
-        if(oranges[orange]>=s and oranges[orange]<=t):
-            countofOranges = countofOranges+1
-    print(countofApples," ",countofOranges)
+        if oranges[orange] >= s and oranges[orange] <= t:
+            countofOranges = countofOranges + 1
+    print(countofApples, " ", countofOranges)
 
-if __name__ == '__main__':
-    #st = input().split()
+
+if __name__ == "__main__":
+    # st = input().split()
 
     s = 7
 
     t = 11
 
-    #ab = input().split()
+    # ab = input().split()
 
     a = 5
 
     b = 15
 
-    #mn = input().split()
+    # mn = input().split()
 
     m = 3
 
@@ -35,6 +36,6 @@ if __name__ == '__main__':
 
     apples = [-2, 2, 1]
 
-    oranges = [5,-6]
+    oranges = [5, -6]
 
     countApplesAndOranges(s, t, a, b, apples, oranges)

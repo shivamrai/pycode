@@ -14,24 +14,35 @@ class Solution:
         max_len = 0
         for i, x in enumerate(s):
             while x in subset:
-                print(f"Removing {s[start]} from subset because it is a duplicate of {x}")
+                print(
+                    f"Removing {
+                        s[start]} from subset because it is a duplicate of {x}")
                 subset.remove(s[start])
                 start += 1
             subset.add(x)
             max_len = max(max_len, i - start + 1)
         return max_len
-            
+
+
 if __name__ == "__main__":
     solution = Solution()
     s = "abcabcbb"
     result = solution.lengthOfLongestSubstring(s)
-    print(f"Length of the longest substring without repeating characters in '{s}' is: {result}")
+    print(
+        f"Length of the longest substring without repeating characters in '{s}' is: {result}"
+    )
     s = " "
     result = solution.lengthOfLongestSubstring(s)
-    print(f"Length of the longest substring without repeating characters in '{s}' is: {result}")
-    s ="aab"
+    print(
+        f"Length of the longest substring without repeating characters in '{s}' is: {result}"
+    )
+    s = "aab"
     result = solution.lengthOfLongestSubstring(s)
-    print(f"Length of the longest substring without repeating characters in '{s}' is: {result}")
-    s= "pwwkew"
+    print(
+        f"Length of the longest substring without repeating characters in '{s}' is: {result}"
+    )
+    s = "pwwkew"
     result = solution.lengthOfLongestSubstring(s)
-    print(f"Length of the longest substring without repeating characters in '{s}' is: {result}")
+    print(
+        f"Length of the longest substring without repeating characters in '{s}' is: {result}"
+    )

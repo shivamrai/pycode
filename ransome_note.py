@@ -22,6 +22,7 @@ Leetcode 383. Ransom Note
 https://leetcode.com/problems/ransom-note/
 """
 
+
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
         mag_dict = {}
@@ -36,7 +37,8 @@ class Solution:
             else:
                 return False
         return True
-    
+
+
 if __name__ == "__main__":
     solution = Solution()
     ransomNote = "a"

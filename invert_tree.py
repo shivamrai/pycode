@@ -1,4 +1,6 @@
 from typing import Optional
+
+
 # """LeetCode 226. Invert Binary Tree
 # https://leetcode.com/problems/invert-binary-tree/"""
 # Definition for a binary tree node.
@@ -7,17 +9,21 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if not root:
             return None
-        
+
         root.left, root.right = root.right, root.left  # Swap left and right children
         self.invertTree(root.left)
         self.invertTree(root.right)
         return root
-    
-    def invertTreeOptional(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+
+    def invertTreeOptional(
+            self,
+            root: Optional[TreeNode]) -> Optional[TreeNode]:
         # Preorder traversal to invert the tree
         def preorder_invert(node: Optional[TreeNode]):
             if not node:
@@ -43,7 +49,8 @@ class Solution:
 
         inorder(root)
         return result
-    
+
+
 if __name__ == "__main__":
     # Example usage:
     # Constructing a binary tree:
@@ -65,7 +72,7 @@ if __name__ == "__main__":
     def print_tree(node):
         if not node:
             return
-        print(node.val, end=' ')
+        print(node.val, end=" ")
         print_tree(node.left)
         print_tree(node.right)
 

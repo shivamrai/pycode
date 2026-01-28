@@ -1,15 +1,16 @@
-#Definition for singly-linked list.
+# Definition for singly-linked list.
 class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
 
+
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        #dummy Node
+        # dummy Node
         head = mergedSortedList = ListNode(0)
-        while (l1 and l2):
-            if(l1.val<l2.val):
+        while l1 and l2:
+            if l1.val < l2.val:
                 mergedSortedList.next = l1
                 l1 = l1.next
                 mergedSortedList = mergedSortedList.next

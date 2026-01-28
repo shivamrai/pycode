@@ -1,14 +1,14 @@
 def isPerfectSquare(num) -> bool:
     left = 1
     right = num
-    while(left<right):
-        midpoint  = (left+right)//2;
-        if(midpoint**2==num):
+    while left < right:
+        midpoint = (left + right) // 2
+        if midpoint**2 == num:
             return True
-        elif(midpoint**2>num):
+        elif midpoint**2 > num:
             right = midpoint - 1
-        elif(midpoint**2<num):
-            left = midpoint+1
+        elif midpoint**2 < num:
+            left = midpoint + 1
     return False
     # divisorDict = {}
     # i=2
@@ -30,6 +30,7 @@ def isPerfectSquare(num) -> bool:
     #         setFlag = False
     # return setFlag
 
+
 if __name__ == "__main__":
-    #s = Solution()
+    # s = Solution()
     print(isPerfectSquare(104976))

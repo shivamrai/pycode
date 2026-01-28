@@ -16,7 +16,7 @@ Write the code that will take a string and make this conversion given a number o
 
 string convert(string s, int numRows);
 
- 
+
 
 Example 1:
 
@@ -40,11 +40,12 @@ Output: "A"
 
 """
 
+
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
         if numRows == 1 or numRows >= len(s):
             return s
-        
+
         # removed invalid pattern[str][str] assignment
 
         # lets build a 2D list to hold the zigzag pattern
@@ -54,7 +55,7 @@ class Solution:
         # and then read it line by line
         # this will ensure that we can read the pattern correctly
         # if numRows is 1, we can return the string as it is
-        pattern: list[list[str]] = [[''] for _ in range(numRows)]
+        pattern: list[list[str]] = [[""] for _ in range(numRows)]
         print(f"Initial pattern: {pattern}")
         for i, x in enumerate(s):
             row = i % (2 * numRows - 2)  # Calculate the row
@@ -63,8 +64,8 @@ class Solution:
             else:
                 pattern[2 * numRows - 2 - row].append(x)
         print(f"Filled pattern: {pattern}")
-        return ''.join(''.join(row) for row in pattern if row)
-        
+        return "".join("".join(row) for row in pattern if row)
+
 
 if __name__ == "__main__":
     sol = Solution()

@@ -1,7 +1,8 @@
 def listsplice(passedlist):
-    for i in range(0, len(passedlist)-1):
-        sum = sum + passedlist[i]
-    if(sum % 3 == 0):
-        return isListdivisible = 1
+    total = 0
+    for i in range(0, len(passedlist)):
+        total = total + passedlist[i]
+    if total % 3 == 0:
+        return 1
     else:
-        return is
+        return 0

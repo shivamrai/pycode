@@ -31,8 +31,15 @@ Output: [1,2,3,4,5]
 Example 9:
 Input: nums1 = [0], m = 0, nums2 = [1,2,3,4,5,6], n = 6
 Output: [1,2,3,4,5,6]"""
+
+
 class Solution:
-    def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+    def merge(
+            self,
+            nums1: list[int],
+            m: int,
+            nums2: list[int],
+            n: int) -> None:
         """
         Do not return anything, modify nums1 in-place instead.
         """
@@ -56,6 +63,7 @@ class Solution:
 
         return nums1
 
+
 if __name__ == "__main__":
     # nums1 = [1,2,3,0,0,0]
     # m = 3
@@ -67,8 +75,8 @@ if __name__ == "__main__":
     # m = 1
     # n = 0
     # print(sol.merge(nums1,m,nums2,n))
-    nums1 = [2,0]
+    nums1 = [2, 0]
     m = 1
     nums2 = [1]
     n = 1
-    print(sol.merge(nums1,m,nums2,n))
+    print(sol.merge(nums1, m, nums2, n))

@@ -19,26 +19,29 @@ def isValid(s):
     #     return True
     # else:
     #     return False
-    parentheisDict = {"[":"]","(":")","{":"}"}
+    parentheisDict = {"[": "]", "(": ")", "{": "}"}
     openParenthesis = parentheisDict.keys()
     stack = []
-    if s == "": return True
-    elif (len(s)%2 != 0): return False
+    if s == "":
+        return True
+    elif len(s) % 2 != 0:
+        return False
     for element in s:
-        if(element in openParenthesis):
+        if element in openParenthesis:
             stack.append(element)
         else:
-            if len(stack)==0:
+            if len(stack) == 0:
                 return False
             elif element != parentheisDict[stack[-1]]:
                 return False
             stack.pop()
-    if(stack == []):
+    if stack == []:
         return True
     else:
         return False
 
+
 if __name__ == "__main__":
     isValidParantheis = False
-    s=isValid('([)]')
+    s = isValid("([)]")
     print(s)

@@ -2,10 +2,14 @@
 import random
 
 # Definition for singly-linked list.
+
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
+
 class Solution:
     def __init__(self, head: ListNode):
         """
@@ -14,7 +18,6 @@ class Solution:
         """
         self.head = head
         head.next = None
-        
 
     def getRandom(self) -> int:
         """
@@ -22,20 +25,22 @@ class Solution:
         """
         dummy = self.head
         len = 0
-        while(dummy):
+        while (dummy):
             dummy = dummy.next
-            len+=1
-        rRange = random.randint(0,len-1)
-        for i in range(0,rRange-1):
+            len += 1
+        rRange = random.randint(0, len - 1)
+        for i in range(0, rRange - 1):
             self.head = self.head.next
-        if(self.head):
+        if (self.head):
             return self.head.val
         else:
             return -1
 
-if __name__ == "__main__":
-    #Init a singly linked list [1,2,3].
-    ListNode dead = new ListNode(1);
-    head.next = new ListNode(2);
-    head.next.next = new ListNode(3);
-    Solution solution = new Solution(head);
+
+if __name__ == '__main__':
+    # Init a singly linked list [1,2,3].
+    # dead = ListNode(1)
+    # head.next = ListNode(2)
+    # head.next.next = ListNode(3)
+    # solution = Solution(head)
+    pass

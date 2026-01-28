@@ -8,14 +8,15 @@ def minmaxsum(arr):
                 arr[j] = swap
             else:
                 pass
-        minmax = [0,0]  
+        minmax = [0, 0]
         lista = arr.copy()
         listb = arr.copy()
         del lista[-1]
         listb.pop(0)
-        minmax[0]=sum(lista)
-        minmax[1]=sum(listb)
+        minmax[0] = sum(lista)
+        minmax[1] = sum(listb)
     print(minmax[0], " ", minmax[1])
 
-a = [5,2,7,1,4]
+
+a = [5, 2, 7, 1, 4]
 minmaxsum(a)
