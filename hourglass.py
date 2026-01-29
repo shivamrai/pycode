@@ -32,5 +32,5 @@ if __name__ == "__main__":
         [0, 0, 1, 2, 4, 0],
     ]
     print(arr)
-    largest_sum = hourglass_sum(arr)
-    print(largest_sum)
+    result_sum = hourglass_sum(arr)
+    print(result_sum)

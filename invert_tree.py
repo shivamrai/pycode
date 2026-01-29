@@ -50,7 +50,7 @@ class Solution:
         return root_node
 
     # Serialize the tree in inorder traversal
-    def inorder_traversal(self, root: Optional[TreeNode]):
+    def inorder_traversal(self, root_node: Optional[TreeNode]):
         """inorder_traversal function."""
         result = []
 
@@ -62,7 +62,7 @@ class Solution:
             result.append(node.val)
             inorder(node.right)
 
-        inorder(root)
+        inorder(root_node)
         return result
 
 
