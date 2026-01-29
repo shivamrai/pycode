@@ -24,29 +24,34 @@ class TreeNode:
 class Solution:
     """Solution class."""
 
+    def __init__(self):
+        """Initialize solution with empty preorder and inorder lists."""
+        self.preorder = []
+        self.inorder = []
+
     def helper(self, pre_start: int, in_start: int, in_end: int) -> Optional[TreeNode]:
         """Helper function to construct tree from preorder and inorder."""
-        if pre_start >= len(preorder) or in_start > in_end:
+        if pre_start >= len(self.preorder) or in_start > in_end:
             return None
 
         # Root value is the current element in preorder
-        root_val = preorder[pre_start]
-        root = TreeNode(root_val)
+        root_val = self.preorder[pre_start]
+        root_node = TreeNode(root_val)
 
         # Find the index of the root in inorder
-        root_index = inorder.index(root_val, in_start, in_end + 1)
+        root_index = self.inorder.index(root_val, in_start, in_end + 1)
 
         # Calculate the size of the left subtree
         left_size = root_index - in_start
 
         # Recursively build the left and right subtrees
-        root.left = self.helper(pre_start + 1, in_start, root_index - 1)
-        root.right = self.helper(
+        root_node.left = self.helper(pre_start + 1, in_start, root_index - 1)
+        root_node.right = self.helper(
             pre_start + 1 + left_size,
             root_index + 1,
             in_end)
 
-        return root
+        return root_node
 
     def build_tree(self, preorder: list[int], inorder: list[int]) -> Optional[TreeNode]:
         """Build tree from preorder and inorder traversals."""
@@ -54,6 +59,8 @@ class Solution:
             return None
         # preorder is: root, left, right
         # inorder is: left, root, right
+        self.preorder = preorder
+        self.inorder = inorder
         return self.helper(0, 0, len(inorder) - 1)
 
 
@@ -61,11 +68,11 @@ if __name__ == "__main__":
     # Example usage:
     # Preorder: [3, 9, 20, 15, 7]
     # Inorder: [9, 3, 15, 20, 7]
-    preorder = [3, 9, 20, 15, 7]
-    inorder = [9, 3, 15, 20, 7]
+    test_preorder = [3, 9, 20, 15, 7]
+    test_inorder = [9, 3, 15, 20, 7]
     # output = "3, 9, 20, None, None, 15,7
 
     solution = Solution()
-    root = solution.build_tree(preorder, inorder)
+    root = solution.build_tree(test_preorder, test_inorder)
 
     print(TreeNode.print_tree(root))
