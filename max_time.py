@@ -4,170 +4,52 @@
 class Solution:
     """Solution class."""
 
-    def largest_time_from_digits(arr) -> str:
-        """largest_time_from_digits function."""
-        ptr1, ptr2, ptr3, ptr4 = 0, 1, 2, 3
-        time, maxtime = 0, 0
-        hour, mins = 0, 0
-        if arr == [0, 0, 0, 0]:
-            return "00:00"
-        finalTime = ""
-        valid = False
-        for i in range(0, 64):
-            hour = arr[ptr1] * 10 + arr[ptr2]
-            mins = arr[ptr3] * 10 + arr[ptr4]
+    def _check_permutation(self, arr: list[int], ptr1: int, ptr2: int, ptr3: int, ptr4: int) -> int:
+        """Check a specific permutation configuration and return max valid time."""
+        max_time = -1
 
-            if hour < 24 and mins < 60:
-                time = hour * 100 + mins
-                if time > maxtime:
-                    valid = True
-                    maxtime = time
-            if ptr1 >= 3:
-                ptr1 = 0
-            else:
-                ptr1 += 1
-            if ptr2 >= 3:
-                ptr2 = 0
-            else:
-                ptr2 += 1
-            if ptr3 >= 3:
-                ptr3 = 0
-            else:
-                ptr3 += 1
-            if ptr4 >= 3:
-                ptr4 = 0
-            else:
-                ptr4 += 1
-        ptr1, ptr2, ptr3, ptr4 = 3, 2, 0, 1
-        for i in range(0, 64):
+        for _ in range(64):
             hour = arr[ptr1] * 10 + arr[ptr2]
-            mins = arr[ptr3] * 10 + arr[ptr4]
-            if hour < 24 and mins < 60:
-                time = hour * 100 + mins
-                if time > maxtime:
-                    valid = True
-                    maxtime = time
-            if ptr1 >= 3:
-                ptr1 = 0
-            else:
-                ptr1 += 1
-            if ptr2 >= 3:
-                ptr2 = 0
-            else:
-                ptr2 += 1
-            if ptr3 >= 3:
-                ptr3 = 0
-            else:
-                ptr3 += 1
-            if ptr4 >= 3:
-                ptr4 = 0
-            else:
-                ptr4 += 1
-        ptr1, ptr2, ptr3, ptr4 = 2, 0, 3, 1
-        for i in range(0, 64):
-            hour = arr[ptr1] * 10 + arr[ptr2]
-            mins = arr[ptr3] * 10 + arr[ptr4]
-            if hour < 24 and mins < 60:
-                time = hour * 100 + mins
-                if time > maxtime:
-                    valid = True
-                    maxtime = time
-            if ptr1 >= 3:
-                ptr1 = 0
-            else:
-                ptr1 += 1
-            if ptr2 >= 3:
-                ptr2 = 0
-            else:
-                ptr2 += 1
-            if ptr3 >= 3:
-                ptr3 = 0
-            else:
-                ptr3 += 1
-            if ptr4 >= 3:
-                ptr4 = 0
-            else:
-                ptr4 += 1
-        ptr1, ptr2, ptr3, ptr4 = 2, 3, 1, 0
-        for i in range(0, 64):
-            hour = arr[ptr1] * 10 + arr[ptr2]
-            mins = arr[ptr3] * 10 + arr[ptr4]
-            if hour < 24 and mins < 60:
-                time = hour * 100 + mins
-                if time > maxtime:
-                    valid = True
-                    maxtime = time
-            if ptr1 >= 3:
-                ptr1 = 0
-            else:
-                ptr1 += 1
-            if ptr2 >= 3:
-                ptr2 = 0
-            else:
-                ptr2 += 1
-            if ptr3 >= 3:
-                ptr3 = 0
-            else:
-                ptr3 += 1
-            if ptr4 >= 3:
-                ptr4 = 0
-            else:
-                ptr4 += 1
-        ptr1, ptr2, ptr3, ptr4 = 1, 3, 0, 2
-        for i in range(0, 64):
-            hour = arr[ptr1] * 10 + arr[ptr2]
-            mins = arr[ptr3] * 10 + arr[ptr4]
-            if hour < 24 and mins < 60:
-                time = hour * 100 + mins
-                if time > maxtime:
-                    valid = True
-                    maxtime = time
-            if ptr1 >= 3:
-                ptr1 = 0
-            else:
-                ptr1 += 1
-            if ptr2 >= 3:
-                ptr2 = 0
-            else:
-                ptr2 += 1
-            if ptr3 >= 3:
-                ptr3 = 0
-            else:
-                ptr3 += 1
-            if ptr4 >= 3:
-                ptr4 = 0
-            else:
-                ptr4 += 1
-        ptr1, ptr2, ptr3, ptr4 = 1, 0, 3, 2
-        for i in range(0, 64):
-            hour = arr[ptr1] * 10 + arr[ptr2]
-            mins = arr[ptr3] * 10 + arr[ptr4]
-            if hour < 24 and mins < 60:
-                time = hour * 100 + mins
-                if time > maxtime:
-                    valid = True
-                    maxtime = time
-            if ptr1 >= 3:
-                ptr1 = 0
-            else:
-                ptr1 += 1
-            if ptr2 >= 3:
-                ptr2 = 0
-            else:
-                ptr2 += 1
-            if ptr3 >= 3:
-                ptr3 = 0
-            else:
-                ptr3 += 1
-            if ptr4 >= 3:
-                ptr4 = 0
-            else:
-                ptr4 += 1
-        finalTimeStr = str(maxtime)
-        print(finalTimeStr)
-        if len(finalTimeStr) == 3:
-            finalTimeStr = "0" + finalTimeStr
-        return finalTimeStr[0] + finalTimeStr[1] + ":" + finalTimeStr[2] + finalTimeStr[3] if valid else ""
+            minute = arr[ptr3] * 10 + arr[ptr4]
 
-    if __name__ == "__main__":
-        print(largest_time_from_digits([1, 9, 6, 0]))
+            if hour < 24 and minute < 60:
+                time_value = hour * 100 + minute
+                max_time = max(max_time, time_value)
+
+            ptr1 = (ptr1 + 1) % 4
+            ptr2 = (ptr2 + 1) % 4
+            ptr3 = (ptr3 + 1) % 4
+            ptr4 = (ptr4 + 1) % 4
+
+        return max_time
+
+    def largest_time_from_digits(self, arr: list[int]) -> str:
+        """Find valid time with maximum hour/minute from 4 digits."""
+        # All 6 permutations of 4 positions: (pos1, pos2, pos3, pos4)
+        permutations_config = [
+            (0, 1, 2, 3),
+            (3, 2, 0, 1),
+            (2, 0, 3, 1),
+            (2, 3, 1, 0),
+            (1, 3, 0, 2),
+            (1, 0, 3, 2),
+        ]
+
+        max_time = -1
+        for ptr1, ptr2, ptr3, ptr4 in permutations_config:
+            time_result = self._check_permutation(arr, ptr1, ptr2, ptr3, ptr4)
+            max_time = max(max_time, time_result)
+
+        # If no valid time found, return empty string
+        if max_time == -1:
+            return ""
+
+        # Format the time string
+        hours = max_time // 100
+        minutes = max_time % 100
+        return f"{hours:02d}:{minutes:02d}"
+
+
+if __name__ == "__main__":
+    solution = Solution()
+    print(solution.largest_time_from_digits([1, 9, 6, 0]))

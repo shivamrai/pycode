@@ -18,6 +18,6 @@ if __name__ == "__main__":
         [1, -734575199, 1],
         [1, 973594325, 1],
     ]
-    for i in range(len(arrayinput)):
-        print(closest_number(arrayinput[i][0], arrayinput[i][1], arrayinput[i][2]))
+    for i, (a, b, x) in enumerate(arrayinput):
+        print(closest_number(a, b, x))
     # print(closest_number(540385427, 0, 7))
