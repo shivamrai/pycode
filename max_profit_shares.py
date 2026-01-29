@@ -8,7 +8,7 @@ class Solution:
         """max_profit function."""
         minPrice = 899237498237
         maxProfit = 0
-        for i, price in enumerate(prices):
+        for _, price in enumerate(prices):
             if price < minPrice:
                 minPrice = price
             elif price - minPrice > maxProfit:

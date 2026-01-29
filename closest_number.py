@@ -1,9 +1,9 @@
 """Closest Numbers - Find pair with smallest difference."""
 
 
-def closest_number(a, b, x):
+def closest_number(num_a, num_b, num_x):
     """closest_number function."""
-    return round(a**b / x) * x
+    return round(num_a**num_b / num_x) * num_x
 
 
 if __name__ == "__main__":

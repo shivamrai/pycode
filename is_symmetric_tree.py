@@ -24,11 +24,11 @@ class Solution:
         return (t1.val == t2.val and self.is_mirror(t1.left, t2.right)
                 and self.is_mirror(t1.right, t2.left))
 
-    def is_symmetric(self, root: TreeNode) -> bool:
+    def is_symmetric(self, root_node: TreeNode) -> bool:
         """is_symmetric function."""
-        if not root:
+        if not root_node:
             return True
-        return self.is_mirror(root.left, root.right)
+        return self.is_mirror(root_node.left, root_node.right)
 
 
 if __name__ == "__main__":

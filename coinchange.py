@@ -7,7 +7,8 @@ class Solution:
     def coin_change(self, coins, amount: int) -> int:
         """coin_change function."""
         # bottomup approach
-        # try building problems for all the combinations till amount and select the least possible number of coins for every consecutive answer
+        # try building problems for all the combinations till amount and
+        # select the least possible number of coins for every consecutive answer
         # min(prev, current)
         array = [amount + 1] * (amount + 1)
         array[0] = 0

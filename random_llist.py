@@ -8,10 +8,10 @@ import random
 class ListNode:
     """ListNode class."""
 
-    def __init__(self, val=0, next=None):
+    def __init__(self, val=0, next_node=None):
         """__init__ function."""
         self.val = val
-        self.next = next
+        self.next_node = next_node
 
 
 class Solution:
@@ -23,7 +23,7 @@ class Solution:
         Note that the head is guaranteed to be not null, so it contains at least one node.
         """
         self.head = head
-        head.next = None
+        head.next_node = None
 
     def get_random(self) -> int:
         """

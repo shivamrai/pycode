@@ -19,17 +19,18 @@ class TreeNode:
 class Solution:
     """Solution class."""
 
-    def invert_tree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+    def invert_tree(self, root_node: Optional[TreeNode]) -> Optional[TreeNode]:
         """invert_tree function."""
-        if not root:
+        if not root_node:
             return None
 
-        root.left, root.right = root.right, root.left  # Swap left and right children
-        self.invert_tree(root.left)
-        self.invert_tree(root.right)
-        return root
+        root_node.left, root_node.right = root_node.right, root_node.left
+        self.invert_tree(root_node.left)
+        self.invert_tree(root_node.right)
+        return root_node
 
-    def invert_tree_optional(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+    def invert_tree_optional(self, root_node: Optional[TreeNode]
+                              ) -> Optional[TreeNode]:
         """Invert tree using optional approach.
 
         Preorder traversal to invert the tree.
@@ -45,8 +46,8 @@ class Solution:
             preorder_invert(node.left)
             preorder_invert(node.right)
 
-        preorder_invert(root)
-        return root
+        preorder_invert(root_node)
+        return root_node
 
     # Serialize the tree in inorder traversal
     def inorder_traversal(self, root: Optional[TreeNode]):

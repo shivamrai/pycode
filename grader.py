@@ -1,6 +1,6 @@
 def gradingStudents(grades):
     # Write your code here
-    for i in range(len(grades)):
+    for i, _ in enumerate(grades):
         if grades[i] >= 38:
             multipleof5 = ((int)(grades[i] / 5) + 1) * 5
             roundOffDifference = multipleof5 - grades[i]

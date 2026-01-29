@@ -1,16 +1,16 @@
-def fibonacci(n):
+def fibonacci(num):
     """fibonacci function."""
-    if n <= 1:
-        return n
-    return fibonacci(n - 1) + fibonacci(n - 2)
+    if num <= 1:
+        return num
+    return fibonacci(num - 1) + fibonacci(num - 2)
 
 
-def fib_dynamic_top_down(n):
+def fib_dynamic_top_down(num):
     """fib_dynamic_top_down function."""
-    if n in range(0, 1):
+    if num in range(0, 1):
         return 1
-    for i in range(2, n):
-        # fib_dynamic_top_down(n) = fib_dynamic_top_down(n-2)+fib_dynamic_top_down(n-1)
+    for i in range(2, num):
+        # fib_dynamic_top_down(num) = fib_dynamic_top_down(num-2)+fib_dynamic_top_down(num-1)
         return int(fib_dynamic_top_down(i - 2) + fib_dynamic_top_down(i - 1))
     return 0
 

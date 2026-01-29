@@ -18,7 +18,7 @@ class Solution:
     def level_order(self, root: TreeNode):
         """level_order function."""
         if root is None:
-            return
+            return []
         q = []
         q.append(root)
         result = []
