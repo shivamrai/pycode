@@ -7,27 +7,20 @@ Created on Tue May 14 11:00:08 2019
 
 # Importing required libraries
 # pylint: disable=import-error
-from sklearn.svm import SVC
 import sqlite3
-import pandas as pd
-import numpy as np
 from time import time
-import seaborn as sns
 
-# import itertools
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from sklearn import linear_model, preprocessing
+from sklearn.ensemble import AdaBoostClassifier, RandomForestClassifier
 from sklearn.metrics import accuracy_score
-from sklearn.naive_bayes import GaussianNB
-from sklearn import preprocessing
-
-# from sklearn.preprocessing import LabelEncoder as le
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import cross_val_score, train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn import linear_model
-from sklearn.model_selection import cross_val_score
+from sklearn.svm import SVC
 
 
 def get_match_label(match):
@@ -104,7 +97,7 @@ def get_fifa_stats(match, player_stats):
             overall_rating = pd.Series(current_stats.loc[0, "overall_rating"])
 
         # Rename stat
-        name = "{}_overall_rating".format(player)
+        name = f"{player}_overall_rating"
         names.append(name)
 
         # Aggregate stats
@@ -137,7 +130,7 @@ def get_fifa_data(matches, player_stats, path=None, data_exists=False):
         fifa_data = matches.apply(lambda x: get_fifa_stats(x, player_stats), axis=1)
 
         end = time()
-        print("Fifa data collected in {:.1f} minutes".format((end - start) / 60))
+        print(f"Fifa data collected in {(end - start) / 60:.1f} minutes")
 
     # Return fifa_data
     return fifa_data
@@ -302,7 +295,7 @@ def get_last_matches_against_eachother(matches, date, home_team, away_team, x=10
     # Get last x matches
     try:
         last_matches = total_matches[total_matches.date < date].sort_values(by="date", ascending=False).iloc[0:x, :]
-    except BaseException:
+    except Exception as e:
         last_matches = (
             total_matches[total_matches.date < date]
             .sort_values(by="date", ascending=False)
@@ -389,7 +382,7 @@ def create_feables(matches, fifa, bookkeepers, get_overall=False, horizontal=Tru
 
     end = time()
     if verbose:
-        print("Match features generated in {:.1f} minutes".format((end - start) / 60))
+        print(f"Match features generated in {(end - start) / 60:.1f} minutes")
 
     if verbose:
         print("Generating match labels...")
@@ -399,7 +392,7 @@ def create_feables(matches, fifa, bookkeepers, get_overall=False, horizontal=Tru
     labels = matches.apply(get_match_label, axis=1)
     end = time()
     if verbose:
-        print("Match labels generated in {:.1f} minutes".format((end - start) / 60))
+        print(f"Match labels generated in {(end - start) / 60:.1f} minutes")
 
     if verbose:
         print("Generating bookkeeper data...")
@@ -410,7 +403,7 @@ def create_feables(matches, fifa, bookkeepers, get_overall=False, horizontal=Tru
     bk_data.loc[:, "match_api_id"] = matches.loc[:, "match_api_id"]
     end = time()
     if verbose:
-        print("Bookkeeper data generated in {:.1f} minutes".format((end - start) / 60))
+        print(f"Bookkeeper data generated in {(end - start) / 60:.1f} minutes")
 
     # Merges features and labels into one frame
     features = pd.merge(match_stats, fifa_stats, on="match_api_id", how="left")
@@ -633,6 +626,6 @@ preds = svclassifier.predict(test)
 print(preds)
 print(accuracy_score(test_labels, preds))
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     # execute only if run as a script
     main()
