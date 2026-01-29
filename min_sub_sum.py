@@ -14,7 +14,7 @@ class Solution:
         while sub_size <= len(nums):
             for i in range(len(nums) - sub_size + 1):
                 # Calculate the sum of the current subarray
-                sub_sum = sum(nums[i : i + sub_size])
+                sub_sum = sum(nums[i: i + sub_size])
 
                 print(f"Checking subarray with {sub_size} with sum {sub_sum}")
                 if sub_sum == target:

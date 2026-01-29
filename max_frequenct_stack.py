@@ -36,4 +36,5 @@ class FreqStack:
         print(self.hashmap)
 
 
-if __name__ == "__main__":    pass
+if __name__ == "__main__":
+    pass

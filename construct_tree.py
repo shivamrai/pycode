@@ -5,6 +5,7 @@ from typing import Optional
 
 class TreeNode:
     """TreeNode class."""
+
     def __init__(self, val=0, left=None, right=None):
         """__init__ function."""
         self.val = val

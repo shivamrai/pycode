@@ -306,7 +306,7 @@ def get_last_matches_against_eachother(matches, date, home_team, away_team, x=10
         last_matches = (
             total_matches[total_matches.date < date]
             .sort_values(by="date", ascending=False)
-            .iloc[0 : total_matches.shape[0], :]
+            .iloc[0: total_matches.shape[0], :]
         )
 
         # Check for error in data

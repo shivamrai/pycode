@@ -258,10 +258,10 @@ def main():
         else:
             skipped += 1
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"Total files processed: {processed}")
     print(f"Files skipped (already refactored): {skipped}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
 
 
 if __name__ == "__main__":

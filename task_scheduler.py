@@ -28,7 +28,6 @@ def least_interval(self, tasks: List[str], n: int) -> int:
     return len(taskList)
 
 
-
 if __name__ == "__main__":
     tasks = ["A", "A", "A", "B", "B", "B"]
     n = 2

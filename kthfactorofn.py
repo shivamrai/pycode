@@ -1,7 +1,6 @@
 """Kth Factor - Find kth smallest factor of n."""
 
 
-
 class Solution:
     """Solution class."""
 
