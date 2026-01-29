@@ -14,7 +14,7 @@ class TreeNode:
 class Solution:
     """Solution class."""
 
-    def max_depth(self, root: TreeNode) -> int:
+    def max_depth(self, root: 'TreeNode') -> int:
         """max_depth function."""
         if not root:
             return 0

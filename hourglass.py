@@ -5,10 +5,6 @@
 def hourglass_sum(arr):
     """hourglass_sum function."""
     largestSum = -32767
-    currentSum = -32767
-    i = 0
-    j = 0
-    k = 0
     for j in range(0, 4):
         for k in range(0, 4):
             currentSum = (
@@ -20,8 +16,7 @@ def hourglass_sum(arr):
                 + arr[j + 2][k + 1]
                 + arr[j + 2][k + 2]
             )
-            if largestSum < currentSum:
-                largestSum = currentSum
+            largestSum = max(largestSum, currentSum)
     return largestSum
 
 

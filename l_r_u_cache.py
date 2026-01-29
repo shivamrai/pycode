@@ -36,7 +36,7 @@ class LRUCache:
         """get function."""
         if self.head.key == key:
             return self.head.value
-        elif key in self.hashmap:
+        if key in self.hashmap:
             valueToReturn = self.hashmap[key]
             self.remove(valueToReturn)
             self.add(valueToReturn)

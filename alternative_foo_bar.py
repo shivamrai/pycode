@@ -16,7 +16,7 @@ class FooBar:
     def foo(self, printFoo: "Callable[[], None]") -> None:
         """foo function."""
 
-        for i in range(self.n):
+        for _ in range(self.n):
             if self.ev_foo.is_set():
                 self.ev_bar.wait()
             # printFoo() outputs "foo". Do not change or remove this line.
@@ -27,7 +27,7 @@ class FooBar:
     def bar(self, printBar: "Callable[[], None]") -> None:
         """bar function."""
 
-        for i in range(self.n):
+        for _ in range(self.n):
             self.ev_foo.wait()
             # printBar() outputs "bar". Do not change or remove this line.
             printBar()

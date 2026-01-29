@@ -7,11 +7,7 @@ def minmaxsum(arr):
         min_val = i
         for j in range(len(arr)):
             if arr[min_val] < arr[j]:
-                swap = arr[min_val]
-                arr[min_val] = arr[j]
-                arr[j] = swap
-            else:
-                pass
+                arr[min_val], arr[j] = arr[j], arr[min_val]
         minmax = [0, 0]
         lista = arr.copy()
         listb = arr.copy()

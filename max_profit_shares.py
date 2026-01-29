@@ -8,11 +8,11 @@ class Solution:
         """max_profit function."""
         minPrice = 899237498237
         maxProfit = 0
-        for i in range(0, len(prices)):
-            if prices[i] < minPrice:
-                minPrice = prices[i]
-            elif prices[i] - minPrice > maxProfit:
-                maxProfit = prices[i] - minPrice
+        for i, price in enumerate(prices):
+            if price < minPrice:
+                minPrice = price
+            elif price - minPrice > maxProfit:
+                maxProfit = price - minPrice
         return maxProfit
 
 

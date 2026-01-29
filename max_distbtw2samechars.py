@@ -6,16 +6,14 @@ class Solution:
 
     def max_length_between_equal_characters(self, s: str) -> int:
         """max_length_between_equal_characters function."""
-        distance = 0
         maxDistance = -1
         freq = {}
-        for i in range(0, len(s)):
-            if s[i] not in freq:
-                freq[s[i]] = i
+        for i, char in enumerate(s):
+            if char not in freq:
+                freq[char] = i
             else:
-                distance = i - freq[s[i]] - 1
-                if distance > maxDistance:
-                    maxDistance = distance
+                distance = i - freq[char] - 1
+                maxDistance = max(maxDistance, distance)
         return maxDistance
 
 

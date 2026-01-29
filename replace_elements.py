@@ -4,7 +4,7 @@
 def replace_elements(arr: list) -> list:
     """replace_elements function."""
     if arr == []:
-        return
+        return []
     i = 0
     while i < len(arr):
         j = i

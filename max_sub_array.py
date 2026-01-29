@@ -12,8 +12,8 @@ class Solution:
         # Hence we start a new subarray and this is the continuatioon of
         # subproblem
         dp = [0] * len(nums)
-        for i in range(0, len(nums)):
-            dp[i] = max(dp[i - 1] + nums[i], nums[i])
+        for i, num in enumerate(nums):
+            dp[i] = max(dp[i - 1] + num, num)
         return max(dp)
 
 

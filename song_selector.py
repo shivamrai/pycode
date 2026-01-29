@@ -2,12 +2,12 @@
 
 
 # song selector
-def song_identifier(songs):
+def song_identifier(songs_list):
     """song_identifier function."""
     count = 0
-    for i in range(0, len(songs)):
-        for j in range(0, len(songs)):
-            if (songs[i] + songs[j] % 60) == 0:  # and i!=j):
+    for i, song_i in enumerate(songs_list):
+        for j, song_j in enumerate(songs_list):
+            if (song_i + song_j % 60) == 0:  # and i!=j):
                 count += 1
     return count
 

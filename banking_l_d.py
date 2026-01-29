@@ -22,11 +22,11 @@ class BankingSystem:
         self.accounts = {}
         self.last_timestamp = -1
 
-    def create_account(self, timestamp: int, account_id: str) -> bool:
+    def create_account(self, _timestamp: int, account_id: str) -> bool:
         """Create a new account.
 
         Args:
-            timestamp: Time of operation (unused in Part 1).
+            _timestamp: Time of operation (unused in Part 1).
             account_id: Unique identifier for the account.
 
         Returns:
@@ -37,11 +37,11 @@ class BankingSystem:
         self.accounts[account_id] = 0
         return True
 
-    def deposit(self, timestamp: int, account_id: str, amount: int) -> int | None:
+    def deposit(self, _timestamp: int, account_id: str, amount: int) -> int | None:
         """Deposit money into an account.
 
         Args:
-            timestamp: Time of operation (unused in Part 1).
+            _timestamp: Time of operation (unused in Part 1).
             account_id: Account to deposit into.
             amount: Amount to deposit.
 
@@ -55,7 +55,7 @@ class BankingSystem:
 
     def transfer(
         self,
-        timestamp: int,
+        _timestamp: int,
         source_account_id: str,
         target_account_id: str,
         amount: int,
@@ -63,7 +63,7 @@ class BankingSystem:
         """Transfer money between accounts.
 
         Args:
-            timestamp: Time of operation (unused in Part 1).
+            _timestamp: Time of operation (unused in Part 1).
             source_account_id: Account to transfer from.
             target_account_id: Account to transfer to.
             amount: Amount to transfer.

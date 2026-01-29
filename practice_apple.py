@@ -9,7 +9,6 @@ class Practice:
 
     def __init__(self):
         """__init__ function."""
-        super().__init__()
 
 
 if __name__ == "__main__":
@@ -39,7 +38,7 @@ if __name__ == "__main__":
     # print(if(sum(b)==n):)
     # print(os.listdir('./'))
     # read whole file into one String
-    with open("rules.pro", "r") as f:
+    with open("rules.pro", "r", encoding="utf-8") as f:
         data = f.read()
     print(data)
 

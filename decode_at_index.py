@@ -4,7 +4,7 @@
 class Solution:
     """Solution class."""
 
-    def decode_at_index(self, S: str, K: int) -> str:
+    def decode_at_index(self, S: str, _K: int) -> str:
         """decode_at_index function."""
         decodeS = ""
         i = 0
@@ -13,7 +13,7 @@ class Solution:
             if S[i].isnumeric():
                 S.replace(S[i], "")
                 decodeS = S[:i]
-                for j in range(1, int(S[i])):
+                for _ in range(1, int(S[i])):
                     reserve += decodeS
                 # if(reserve[-1].isnumeric()):
                 #     reserve=reserve[:-1]

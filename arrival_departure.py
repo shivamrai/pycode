@@ -1,20 +1,20 @@
 """Platform for Trains - Find minimum platforms needed."""
 
 
-def arrival_dep(arr, dep):
+def arrival_dep(arr_input, dep_input):
     """arrival_dep function."""
     dict1 = {}
-    for i in range(0, len(arr) - 1):
-        dict1[arr[i]] = "arr"
-    for i in range(0, len(dep) - 1):
-        dict1[dep[i]] = "dep"
+    for i in range(0, len(arr_input) - 1):
+        dict1[arr_input[i]] = "arr"
+    for i in range(0, len(dep_input) - 1):
+        dict1[dep_input[i]] = "dep"
         # dict1.keys()
         sorted(dict1)
 
-    maxPlatforms = 0
-    for k, v in dict1.items():
+    max_platforms = 0
+    for _, v in dict1.items():
         if v == "arr":
-            maxPlatforms += 1
+            max_platforms += 1
 
     print(dict1)
 

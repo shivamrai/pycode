@@ -16,7 +16,7 @@ def deletionmn(soln):
             numn = n
             while numn != 0:
                 if k < len(soln):
-                    listA.pop(k)
+                    soln.pop(k)
                 numn -= 1
             k += 1
 

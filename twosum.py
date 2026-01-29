@@ -31,8 +31,8 @@ class TwoSum:
     def main():
         """main function."""
         listA = [3, 2, 4]
-        sum = 5
-        listB = TwoSum.two_sum(listA, sum)
+        total = 5
+        listB = TwoSum.two_sum(listA, total)
         print(listB)
 
 

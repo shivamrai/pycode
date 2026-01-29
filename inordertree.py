@@ -21,11 +21,10 @@ class Solution:
             return
         q = []
         q.append(root)
-        node = None
         result = []
         level = []
         while q:
-            for i in range(len(q)):
+            for _ in range(len(q)):
                 node = q.pop(0)
                 level.append(node.val)
                 if node.left:

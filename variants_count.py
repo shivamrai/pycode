@@ -18,7 +18,7 @@ def variants_count(n, s0, k, b, m, a):
                 if s[mid] == x:
                     val = mid
                     break
-                elif s[mid] < x:
+                if s[mid] < x:
                     val = mid
                     l = mid + 1
                 else:

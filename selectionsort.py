@@ -11,9 +11,9 @@
 def selectionsort(unsortedlist):
     """selectionsort function."""
     # min_val =a[0]
-    for i in range(len(unsortedlist)):
+    for i, _ in enumerate(unsortedlist):
         min_val = i
-        for j in range(len(unsortedlist)):
+        for j, _ in enumerate(unsortedlist):
             if unsortedlist[min_val] < unsortedlist[j]:
                 swap = unsortedlist[min_val]
                 unsortedlist[min_val] = unsortedlist[j]

@@ -12,7 +12,7 @@ class Node:
 
     def __repr__(self):
         """__repr__ function."""
-        return "Node data is = {}".format(self.val)
+        return f"Node data is = {self.val}"
 
     def getval(self):
         """getval function."""

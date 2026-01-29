@@ -9,15 +9,14 @@ def max_diff(arr, n):
 
     # Now find the maximum sum
     # subarray in diff array
-    max_diff = diff[0]
+    max_diff_val = diff[0]
     for i in range(1, n - 1):
         if diff[i - 1] > 0:
             diff[i] += diff[i - 1]
 
-        if max_diff < diff[i]:
-            max_diff = diff[i]
+        max_diff_val = max(max_diff_val, diff[i])
 
-    return max_diff
+    return max_diff_val
 
 
 if __name__ == "__main__":

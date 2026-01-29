@@ -4,30 +4,30 @@
 # fname = input("Enter file name: ")
 def readwordstolist():
     """readwordstolist function."""
-    fh = open("romeo.txt")
-    lst = list()
-    for line in fh:
-        word = line.rstrip().split()
-        for element in word:
-            if element in lst:
-                continue
-            lst.append(element)
+    with open("romeo.txt", encoding="utf-8") as fh:
+        lst = []
+        for line in fh:
+            word = line.rstrip().split()
+            for element in word:
+                if element in lst:
+                    continue
+                lst.append(element)
 
 
 def emaillist():
     """emaillist function."""
     # fname = input("Enter file name: ")
     # if len(fname) < 1 : fname = "mbox-short.txt"
-    email = list()
-    fh = open("mbox-short.txt")
-    count = 0
-    for line in fh:
-        line.rstrip()
-        if not (line.startswith("From ")):
-            continue
-        words = line.split()
-        email.append(words[1])
-        count = count + 1
+    email = []
+    with open("mbox-short.txt", encoding="utf-8") as fh:
+        count = 0
+        for line in fh:
+            line.rstrip()
+            if not line.startswith("From "):
+                continue
+            words = line.split()
+            email.append(words[1])
+            count = count + 1
     print(email)
     print("There were", count, "lines in the file with From as the first word")
 

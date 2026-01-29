@@ -11,19 +11,11 @@ def diagonal_difference(arr):
     for i in range(rows):
         for j in range(columns):
             if i == j:
-                print(arr[i][j])
                 sumrightdiagonal = sumrightdiagonal + abs(arr[i][j])
-                print(sumrightdiagonal)
-            else:
-                continue
     for i in range(rows):
         for j in range(columns):
             if i == n - j - 1:
-                print(arr[i][j])
                 sumleftdiagonal = sumleftdiagonal + abs(arr[i][j])
-                print(sumleftdiagonal)
-            else:
-                continue
     print(sumrightdiagonal)
     print(sumleftdiagonal)
     return abs(sumleftdiagonal - sumrightdiagonal)

@@ -22,11 +22,10 @@ if __name__ == "__main__":
     counter = 0
     consecutiveCounter = 0
     print(c)
-    for i in range(0, len(c)):
-        if c[i] == "1":
+    for _ in enumerate(c):
+        if c[_[0]] == "1":
             counter += 1
-            if counter >= consecutiveCounter:
-                consecutiveCounter = counter
+            consecutiveCounter = max(consecutiveCounter, counter)
         else:
             counter = 0
     print(consecutiveCounter)

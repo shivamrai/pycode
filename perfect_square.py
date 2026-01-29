@@ -7,11 +7,12 @@ def is_perfect_square(num) -> bool:
     right = num
     while left < right:
         midpoint = (left + right) // 2
-        if midpoint**2 == num:
+        square = midpoint**2
+        if square == num:
             return True
-        elif midpoint**2 > num:
+        if square > num:
             right = midpoint - 1
-        elif midpoint**2 < num:
+        else:
             left = midpoint + 1
     return False
     # divisorDict = {}

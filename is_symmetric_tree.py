@@ -21,9 +21,8 @@ class Solution:
         if not t1 or not t2:
             return False
 
-        return (
-            t1.val == t2.val and self.is_mirror(t1.left, t2.right) and self.is_mirror(t1.right, t2.left)
-        )  # Check if the values are equal and recursively check left and right subtrees
+        return (t1.val == t2.val and self.is_mirror(t1.left, t2.right)
+                and self.is_mirror(t1.right, t2.left))
 
     def is_symmetric(self, root: TreeNode) -> bool:
         """is_symmetric function."""

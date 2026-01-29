@@ -6,18 +6,18 @@ import math
 class Solution:
     """Solution class."""
 
-    def reverse(self, x: int) -> int:
+    def reverse(self, num: int) -> int:
         """reverse function."""
         res = 0
         sign = False
-        if x < 0:
+        if num < 0:
             sign = True
-            x *= -1
-        while x > 0:
-            # num=x%10
-            res = (res * 10) + x % 10
-            x = math.floor(x / 10)
-        return res if sign == False else -1 * res
+            num *= -1
+        while num > 0:
+            # num=num%10
+            res = (res * 10) + num % 10
+            num = math.floor(num / 10)
+        return res if not sign else -1 * res
 
 
 if __name__ == "__main__":

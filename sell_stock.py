@@ -3,8 +3,9 @@
 
 def max_profit(prices):
     """max_profit function."""
-    if (min(prices)) == min[:-1]:
+    if not prices or prices[-1] == min(prices[:-1]):
         return 0
+    return prices[-1] - min(prices[:-1])
 
 
 if __name__ == "__main__":

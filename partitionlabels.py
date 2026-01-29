@@ -11,14 +11,14 @@ class Solution:
         # keep track of end Index
 
         end_idx = [0] * 26
-        for i in range(0, len(S)):
-            end_idx[ord(S[i]) - ord("a")] = i
+        for i, char in enumerate(S):
+            end_idx[ord(char) - ord("a")] = i
 
         res = []
         start, end = 0, 0
 
-        for i in range(len(S)):
-            end = max(end, end_idx[ord(S[i]) - ord("a")])
+        for i, char in enumerate(S):
+            end = max(end, end_idx[ord(char) - ord("a")])
             if i == end:
                 res.append(i - start + 1)
                 start = i + 1

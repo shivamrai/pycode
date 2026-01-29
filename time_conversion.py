@@ -17,12 +17,12 @@ def time_conversion(s):
     return n[:-2]
 
 
-input = "07:05:45PM"
-# print(input[-2:])
-# print(input[0:2])
-input[-2:].replace("PM", "XX")
-print(input)
-# stringtime = time_conversion(input)
+input_time = "07:05:45PM"
+# print(input_time[-2:])
+# print(input_time[0:2])
+input_time[-2:].replace("PM", "XX")
+print(input_time)
+# stringtime = time_conversion(input_time)
 # print(stringtime)
-input[0:2].replace("07", "19")
-print(input)
+input_time[0:2].replace("07", "19")
+print(input_time)

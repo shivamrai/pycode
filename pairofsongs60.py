@@ -8,12 +8,12 @@ class Solution:
         """num_pairs_divisible_by60 function."""
         dp = [0] * 60
         ctr = 0
-        for i in range(len(time)):
-            if time[i] % 60 == 0:
+        for t in time:
+            if t % 60 == 0:
                 ctr += dp[0]
             else:
-                ctr += dp[60 - time[i] % 60]
-            dp[time[i] % 60] += 1
+                ctr += dp[60 - t % 60]
+            dp[t % 60] += 1
         return ctr
 
 

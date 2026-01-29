@@ -49,7 +49,7 @@ class Solution:
         return root
 
     # Serialize the tree in inorder traversal
-    def inorder_traversal(self, root: Optional[TreeNode]) -> List[int]:
+    def inorder_traversal(self, root: Optional[TreeNode]):
         """inorder_traversal function."""
         result = []
 

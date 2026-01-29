@@ -17,7 +17,6 @@ class Solution:
         max_len = 0
         for i, x in enumerate(s):
             while x in subset:
-                print(f"Removing {s[start]} from subset because it is a duplicate of {x}")
                 subset.remove(s[start])
                 start += 1
             subset.add(x)

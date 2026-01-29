@@ -1,13 +1,13 @@
 """Throttling - Rate limiting implementation."""
 
 
-def throttlinggateway(requesttime):
+def throttlinggateway(request_time):
     """throttlinggateway function."""
     reqcounter = 0
     timeset = 0
     dropped = 0
     reqdict = {}
-    for element in requesttime:
+    for element in request_time:
         if element not in reqdict and element - timeset < 9 and reqcounter < 20:
             reqdict[element] = 1
             reqcounter += 1

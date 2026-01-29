@@ -1,17 +1,17 @@
 """String to Number - Convert string to integer."""
 
 
-def my_atoi(str):
+def my_atoi(input_str):
     """my_atoi function."""
     sign = 1
     num = 0
-    if str.strip == "":
+    if input_str.strip == "":
         return 0
-    if str.strip()[0] == "-":
+    if input_str.strip()[0] == "-":
         sign = -1
-    str = str.strip()
-    for x, y in enumerate(str):
-        if (y == "+" or y == "-") and x == 0:
+    input_str = input_str.strip()
+    for x, y in enumerate(input_str):
+        if (y in ('+', '-')) and x == 0:
             pass
         elif y.isdigit():
             num = num * 10 + int(y)
@@ -20,12 +20,12 @@ def my_atoi(str):
     num = num * sign
     if num > (2**31) - 1:
         return (2**31) - 1
-    elif num < -(2**31):
+    if num < -(2**31):
         return -(2**31)
     return num
 
 
 if __name__ == "__main__":
-    str = "     -49 is here"
-    print(str.strip())
-    print(my_atoi(str))
+    input_value = "     -49 is here"
+    print(input_value.strip())
+    print(my_atoi(input_value))

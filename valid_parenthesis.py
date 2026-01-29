@@ -23,23 +23,23 @@ def is_valid(s):
     #     return True
     # else:
     #     return False
-    parentheisDict = {"[": "]", "(": ")", "{": "}"}
-    openParenthesis = parentheisDict.keys()
+    parentheis_dict = {"[": "]", "(": ")", "{": "}"}
+    open_parenthesis = parentheis_dict.keys()
     stack = []
     if s == "":
         return True
-    elif len(s) % 2 != 0:
+    if len(s) % 2 != 0:
         return False
     for element in s:
-        if element in openParenthesis:
+        if element in open_parenthesis:
             stack.append(element)
         else:
             if len(stack) == 0:
                 return False
-            elif element != parentheisDict[stack[-1]]:
+            if element != parentheis_dict[stack[-1]]:
                 return False
             stack.pop()
-    if stack == []:
+    if not stack:
         return True
     return False
 

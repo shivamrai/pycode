@@ -26,7 +26,7 @@ class Student(Person):
     #   firstName - A string denoting the Person's first name.
     #   lastName - A string denoting the Person's last name.
     #   id - An integer denoting the Person's ID number.
-    #   scores - An array of integers denoting thttps://tara.vitapowered.com/workflowengine/workflow/SDE_University/start/5546f193-1f77-40a2-9db3-89f79c0b5e02he Person's test scores.
+    #   scores - An array of integers denoting the Person's test scores.
     #
     # Write your constructor here
     def __init__(self, firstName, lastName, idNumber, scores):
@@ -46,15 +46,15 @@ class Student(Person):
             sumOfScores += score
         average = sumOfScores / len(self.scores)
         grade = "F"
-        if average >= 90 and average <= 100:
+        if 90 <= average <= 100:
             grade = "O"
-        elif average >= 80 and average < 90:
+        elif 80 <= average < 90:
             grade = "E"
-        elif average >= 70 and average < 80:
+        elif 70 <= average < 80:
             grade = "A"
-        elif average >= 55 and average < 70:
+        elif 55 <= average < 70:
             grade = "P"
-        elif average >= 40 and average < 55:
+        elif 40 <= average < 55:
             grade = "D"
         else:
             grade = "T"

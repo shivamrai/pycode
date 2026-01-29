@@ -30,12 +30,12 @@ class Solution:
         Returns a random node's value.
         """
         dummy = self.head
-        len = 0
+        length = 0
         while dummy:
             dummy = dummy.next
-            len += 1
-        rRange = random.randint(0, len - 1)
-        for i in range(0, rRange - 1):
+            length += 1
+        rRange = random.randint(0, length - 1)
+        for _ in range(0, rRange - 1):
             self.head = self.head.next
         if self.head:
             return self.head.val

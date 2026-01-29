@@ -8,25 +8,25 @@ Basically there are 2 portions of a list, sorted one and unsorted one. This algo
 unsorted portion to sorted portion."""
 
 
-def insertion_sort(unsortedlist):
+def insertion_sort(unsorted_list):
     """insertion_sort function."""
     # sortedlist=[]
     # i=1
     # running index from position 1(2nd element of list, assuming 1st element
     # is in sorted part)
-    for index in range(1, len(unsortedlist)):
+    for index in range(1, len(unsorted_list)):
         # choosing a number and assigning its index in list to a position
-        currentvalue = unsortedlist[index]
+        currentvalue = unsorted_list[index]
         position = index
         # while the left number is greater than the selected number, shift
         # those in left side(ahead of list)
-        while unsortedlist[position - 1] > currentvalue and position > 0:
-            unsortedlist[position] = unsortedlist[position - 1]
+        while unsorted_list[position - 1] > currentvalue and position > 0:
+            unsorted_list[position] = unsorted_list[position - 1]
             position -= 1
         # out of while, setting up value in the desired position after
         # iterating is complete.
-        unsortedlist[position] = currentvalue
-    return unsortedlist
+        unsorted_list[position] = currentvalue
+    return unsorted_list
 
 
 unsortedlist = [6, 7, 2, 3, 1]

@@ -4,8 +4,8 @@
 def listsplice(passedlist):
     """listsplice function."""
     total = 0
-    for i in range(0, len(passedlist)):
-        total = total + passedlist[i]
+    for value in passedlist:
+        total = total + value
     if total % 3 == 0:
         return 1
     return 0
