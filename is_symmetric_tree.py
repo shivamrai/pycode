@@ -1,28 +1,35 @@
+"""Symmetric Tree - Check if tree is symmetric."""
+
+
 class TreeNode:
+    """TreeNode class."""
+
     def __init__(self, val=0, left=None, right=None):
+        """__init__ function."""
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
+    """Solution class."""
 
-    def isMirror(self, t1: TreeNode, t2: TreeNode) -> bool:
+    def is_mirror(self, t1: TreeNode, t2: TreeNode) -> bool:
+        """is_mirror function."""
         if not t1 and not t2:
             return True
         if not t1 or not t2:
             return False
 
         return (
-            t1.val == t2.val
-            and self.isMirror(t1.left, t2.right)
-            and self.isMirror(t1.right, t2.left)
+            t1.val == t2.val and self.is_mirror(t1.left, t2.right) and self.is_mirror(t1.right, t2.left)
         )  # Check if the values are equal and recursively check left and right subtrees
 
-    def isSymmetric(self, root: TreeNode) -> bool:
+    def is_symmetric(self, root: TreeNode) -> bool:
+        """is_symmetric function."""
         if not root:
             return True
-        return self.isMirror(root.left, root.right)
+        return self.is_mirror(root.left, root.right)
 
 
 if __name__ == "__main__":
@@ -42,4 +49,4 @@ if __name__ == "__main__":
     root.right.right = TreeNode(3)
 
     solution = Solution()
-    print(solution.isSymmetric(root))  # Output: True
+    print(solution.is_symmetric(root))  # Output: True

@@ -1,8 +1,14 @@
+"""Single Number - Find single number in array."""
+
+
 class solution:
+    """solution class."""
+
     #     Iterate over all the elements in nums\text{nums}nums
     #     If some number in nums\text{nums}nums is new to array, append it
     #     If some number is already in the array, remove it
-    def singleNumber(self, nums: List[int]) -> int:
+    def single_number(self, nums: List[int]) -> int:
+        """single_number function."""
         counter = []
         nums.sort()
         for i in range(0, len(nums)):
@@ -16,4 +22,4 @@ class solution:
 if __name__ == "__main__":
     nums = [2, 1, 2]
     s = solution
-    s.singleNumber(nums)
+    s.single_number(nums)

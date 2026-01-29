@@ -1,4 +1,8 @@
-def letterCombinations(digits):
+"""Phone Number Letter Combinations."""
+
+
+def letter_combinations(digits):
+    """letter_combinations function."""
     dialPad = {
         "2": ["a", "b", "c"],
         "3": ["d", "e", "f"],
@@ -29,5 +33,5 @@ def letterCombinations(digits):
 
 if __name__ == "__main__":
     c = "6862377"
-    s = letterCombinations(c)
+    s = letter_combinations(c)
     print(s)

@@ -1,4 +1,8 @@
-def maxDiff(arr, n):
+"""Max Difference - Find maximum difference in array."""
+
+
+def max_diff(arr, n):
+    """max_diff function."""
     diff = [0] * (n - 1)
     for i in range(0, n - 1):
         diff[i] = arr[i + 1] - arr[i]
@@ -19,4 +23,4 @@ def maxDiff(arr, n):
 if __name__ == "__main__":
     arr = [2, 3, 10, 6, 4, 8, 1]
     arr2 = [6, 3, 1, 2, 27, 5, 7, 8, 2]
-    print(maxDiff(arr2, len(arr2)))
+    print(max_diff(arr2, len(arr2)))

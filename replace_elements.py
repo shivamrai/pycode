@@ -1,4 +1,8 @@
-def replaceElements(arr: list) -> list:
+"""Replace Elements - Replace with right greatest."""
+
+
+def replace_elements(arr: list) -> list:
+    """replace_elements function."""
     if arr == []:
         return
     i = 0
@@ -15,4 +19,4 @@ def replaceElements(arr: list) -> list:
 
 if __name__ == "__main__":
     listA = [17, 18, 5, 4, 6, 1]
-    print(replaceElements(listA))
+    print(replace_elements(listA))

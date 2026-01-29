@@ -1,4 +1,8 @@
-def closestNumber(a, b, x):
+"""Closest Numbers - Find pair with smallest difference."""
+
+
+def closest_number(a, b, x):
+    """closest_number function."""
     return round(a**b / x) * x
 
 
@@ -15,9 +19,5 @@ if __name__ == "__main__":
         [1, 973594325, 1],
     ]
     for i in range(len(arrayinput)):
-        print(
-            closestNumber(
-                arrayinput[i][0],
-                arrayinput[i][1],
-                arrayinput[i][2]))
-    # print(closestNumber(540385427, 0, 7))
+        print(closest_number(arrayinput[i][0], arrayinput[i][1], arrayinput[i][2]))
+    # print(closest_number(540385427, 0, 7))

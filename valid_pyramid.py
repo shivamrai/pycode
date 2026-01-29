@@ -1,4 +1,8 @@
-def validPyramid(A: list) -> bool:
+"""Solution to LeetCode problem."""
+
+
+def valid_pyramid(A: list) -> bool:
+    """valid_pyramid function."""
     if A == [] or len(A) < 3:
         return False
     getMax = max(A)
@@ -29,4 +33,4 @@ def validPyramid(A: list) -> bool:
 if __name__ == "__main__":
     # https://leetcode.com/problems/valid-mountain-array/
     listA = [2, 1]
-    print(validPyramid(listA))
+    print(valid_pyramid(listA))

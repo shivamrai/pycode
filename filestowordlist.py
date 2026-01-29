@@ -1,5 +1,9 @@
+"""Files to Word List - Convert file to word list."""
+
+
 # fname = input("Enter file name: ")
 def readwordstolist():
+    """readwordstolist function."""
     fh = open("romeo.txt")
     lst = list()
     for line in fh:
@@ -12,6 +16,7 @@ def readwordstolist():
 
 
 def emaillist():
+    """emaillist function."""
     # fname = input("Enter file name: ")
     # if len(fname) < 1 : fname = "mbox-short.txt"
     email = list()

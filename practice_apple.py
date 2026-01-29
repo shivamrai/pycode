@@ -1,9 +1,14 @@
+"""Practice Apple - Practice problem solution."""
+
 import os
 from pathlib import Path
 
 
 class Practice:
+    """Practice class."""
+
     def __init__(self):
+        """__init__ function."""
         super().__init__()
 
 

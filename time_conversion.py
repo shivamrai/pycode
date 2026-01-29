@@ -1,4 +1,8 @@
-def timeConversion(s):
+"""Time Conversion - Convert time format."""
+
+
+def time_conversion(s):
+    """time_conversion function."""
     #
     # Write your code here.
     #
@@ -18,7 +22,7 @@ input = "07:05:45PM"
 # print(input[0:2])
 input[-2:].replace("PM", "XX")
 print(input)
-# stringtime = timeConversion(input)
+# stringtime = time_conversion(input)
 # print(stringtime)
 input[0:2].replace("07", "19")
 print(input)

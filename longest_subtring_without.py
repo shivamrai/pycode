@@ -8,15 +8,16 @@ https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
 
 class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
+    """Solution class."""
+
+    def length_of_longest_substring(self, s: str) -> int:
+        """length_of_longest_substring function."""
         subset = set()
         start = 0
         max_len = 0
         for i, x in enumerate(s):
             while x in subset:
-                print(
-                    f"Removing {s[start]} from subset because it is a duplicate of {x}"
-                )
+                print(f"Removing {s[start]} from subset because it is a duplicate of {x}")
                 subset.remove(s[start])
                 start += 1
             subset.add(x)
@@ -27,22 +28,14 @@ class Solution:
 if __name__ == "__main__":
     solution = Solution()
     s = "abcabcbb"
-    result = solution.lengthOfLongestSubstring(s)
-    print(
-        f"Length of the longest substring without repeating characters in '{s}' is: {result}"
-    )
+    result = solution.length_of_longest_substring(s)
+    print(f"Length of the longest substring without repeating characters in '{s}' is: {result}")
     s = " "
-    result = solution.lengthOfLongestSubstring(s)
-    print(
-        f"Length of the longest substring without repeating characters in '{s}' is: {result}"
-    )
+    result = solution.length_of_longest_substring(s)
+    print(f"Length of the longest substring without repeating characters in '{s}' is: {result}")
     s = "aab"
-    result = solution.lengthOfLongestSubstring(s)
-    print(
-        f"Length of the longest substring without repeating characters in '{s}' is: {result}"
-    )
+    result = solution.length_of_longest_substring(s)
+    print(f"Length of the longest substring without repeating characters in '{s}' is: {result}")
     s = "pwwkew"
-    result = solution.lengthOfLongestSubstring(s)
-    print(
-        f"Length of the longest substring without repeating characters in '{s}' is: {result}"
-    )
+    result = solution.length_of_longest_substring(s)
+    print(f"Length of the longest substring without repeating characters in '{s}' is: {result}")

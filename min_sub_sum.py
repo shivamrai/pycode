@@ -6,12 +6,15 @@ https://leetcode.com/problems/minimum-size-subarray-sum/
 
 
 class Solution:
-    def bruteForce(self, target: int, nums: list[int]) -> int:
+    """Solution class."""
+
+    def brute_force(self, target: int, nums: list[int]) -> int:
+        """brute_force function."""
         sub_size = 1
         while sub_size <= len(nums):
             for i in range(len(nums) - sub_size + 1):
                 # Calculate the sum of the current subarray
-                sub_sum = sum(nums[i: i + sub_size])
+                sub_sum = sum(nums[i : i + sub_size])
 
                 print(f"Checking subarray with {sub_size} with sum {sub_sum}")
                 if sub_sum == target:
@@ -19,7 +22,8 @@ class Solution:
             sub_size += 1
         return 0
 
-    def minSubArrayLen(self, target: int, nums: list[int]) -> int:
+    def min_sub_array_len(self, target: int, nums: list[int]) -> int:
+        """min_sub_array_len function."""
         start, end = 0, 0
         subarray_sum = 0
         min_length = float("inf")
@@ -29,12 +33,8 @@ class Solution:
             while subarray_sum >= target:
                 min_length = min(min_length, end - start + 1)
                 subarray_sum -= nums[start]
-                print(
-                    f"Subarray sum >= target, updating min_length: {min_length}, removing {nums[start]} from sum"
-                )
-                print(
-                    f"New subarray sum after removing {nums[start]}: {subarray_sum}"
-                )
+                print(f"Subarray sum >= target, updating min_length: {min_length}, removing {nums[start]} from sum")
+                print(f"New subarray sum after removing {nums[start]}: {subarray_sum}")
                 start += 1
             end += 1
         return min_length if min_length != float("inf") else 0
@@ -44,5 +44,5 @@ if __name__ == "__main__":
     solution = Solution()
     target = 7
     nums = [2, 3, 1, 2, 4, 3]
-    result = solution.minSubArrayLen(target, nums)
+    result = solution.min_sub_array_len(target, nums)
     print(f"Minimum size of subarray with sum >= {target} is: {result}")

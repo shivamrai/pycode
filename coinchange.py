@@ -1,5 +1,11 @@
+"""Coin Change - Find minimum coins for target amount."""
+
+
 class Solution:
-    def coinChange(self, coins, amount: int) -> int:
+    """Solution class."""
+
+    def coin_change(self, coins, amount: int) -> int:
+        """coin_change function."""
         # bottomup approach
         # try building problems for all the combinations till amount and select the least possible number of coins for every consecutive answer
         # min(prev, current)
@@ -16,4 +22,4 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(x.coinChange([1, 2, 5], 11))
+    print(x.coin_change([1, 2, 5], 11))

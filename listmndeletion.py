@@ -1,5 +1,9 @@
+"""List Manipulation and Deletion - Delete elements from list."""
+
+
 # listmndeletion
 def deletionmn(soln):
+    """deletionmn function."""
     m, n = 2, 3
     numm, numn = 0, 0
     k = 0
@@ -20,25 +24,5 @@ def deletionmn(soln):
 
 
 if __name__ == "__main__":
-    listA = [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20]
+    listA = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     deletionmn(listA)

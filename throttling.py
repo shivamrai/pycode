@@ -1,4 +1,8 @@
+"""Throttling - Rate limiting implementation."""
+
+
 def throttlinggateway(requesttime):
+    """throttlinggateway function."""
     reqcounter = 0
     timeset = 0
     dropped = 0
@@ -7,12 +11,7 @@ def throttlinggateway(requesttime):
         if element not in reqdict and element - timeset < 9 and reqcounter < 20:
             reqdict[element] = 1
             reqcounter += 1
-        elif (
-            element in reqdict
-            and reqdict[element] < 3
-            and element - timeset < 9
-            and reqcounter < 20
-        ):
+        elif element in reqdict and reqdict[element] < 3 and element - timeset < 9 and reqcounter < 20:
             reqdict[element] += 1
             reqcounter += 1
             if element - timeset > 10:

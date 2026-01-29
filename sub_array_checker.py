@@ -1,5 +1,11 @@
+"""Subarray Checker - Check for subarray with target sum."""
+
+
 class Solution:
-    def isSubArray(self, arr1, arr2):
+    """Solution class."""
+
+    def is_sub_array(self, arr1, arr2):
+        """is_sub_array function."""
         i, j = 0, 0
         n, m = len(arr1), len(arr2)
         while i < n and j < m:
@@ -16,4 +22,4 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(x.isSubArray([1, 4, 2, 3, 5], [1, 4, 2]))
+    print(x.is_sub_array([1, 4, 2, 3, 5], [1, 4, 2]))

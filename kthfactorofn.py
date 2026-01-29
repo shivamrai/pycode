@@ -1,8 +1,13 @@
+"""Kth Factor - Find kth smallest factor of n."""
+
 from typing import Sized
 
 
 class Solution:
-    def kthFactor(self, n: int, k: int) -> int:
+    """Solution class."""
+
+    def kth_factor(self, n: int, k: int) -> int:
+        """kth_factor function."""
         fcount = 1
         if n == 1 or k == 1:
             return fcount
@@ -18,4 +23,4 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(x.kthFactor(7, 2))
+    print(x.kth_factor(7, 2))

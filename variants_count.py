@@ -1,4 +1,8 @@
-def variantsCount(n, s0, k, b, m, a):
+"""Variants Count - Count number of variants."""
+
+
+def variants_count(n, s0, k, b, m, a):
+    """variants_count function."""
     s = [s0]
     c = 0
     for i in range(1, n):

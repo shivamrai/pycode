@@ -1,3 +1,5 @@
+"""Sentinel - Sentinel pattern implementation."""
+
 if __name__ == "__main__":
     # number = input('Enter a number')
     # list = [number]

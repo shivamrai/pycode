@@ -1,5 +1,11 @@
+"""Max Profit Shares - Calculate maximum profit from stocks."""
+
+
 class Solution:
-    def maxProfit(self, prices) -> int:
+    """Solution class."""
+
+    def max_profit(self, prices) -> int:
+        """max_profit function."""
         minPrice = 899237498237
         maxProfit = 0
         for i in range(0, len(prices)):
@@ -12,4 +18,4 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(x.maxProfit([2, 4, 1]))
+    print(x.max_profit([2, 4, 1]))

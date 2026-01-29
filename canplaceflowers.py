@@ -1,5 +1,11 @@
+"""Can Place Flowers - Check if flowers can be planted."""
+
+
 class Solution:
-    def canPlaceFlowers(self, flowerbed, n) -> bool:
+    """Solution class."""
+
+    def can_place_flowers(self, flowerbed, n) -> bool:
+        """can_place_flowers function."""
         canPlace = True
         ct = 0
         for i in range(1, len(flowerbed)):
@@ -12,4 +18,4 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(x.canPlaceFlowers([1, 0, 0, 0, 1, 0, 1], 1))
+    print(x.can_place_flowers([1, 0, 0, 0, 1, 0, 1], 1))

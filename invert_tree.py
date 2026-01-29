@@ -1,3 +1,5 @@
+"""Invert Binary Tree - Mirror a binary tree."""
+
 from typing import Optional
 
 
@@ -5,27 +7,37 @@ from typing import Optional
 # https://leetcode.com/problems/invert-binary-tree/"""
 # Definition for a binary tree node.
 class TreeNode:
+    """TreeNode class."""
+
     def __init__(self, val=0, left=None, right=None):
+        """__init__ function."""
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+    """Solution class."""
+
+    def invert_tree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        """invert_tree function."""
         if not root:
             return None
 
         root.left, root.right = root.right, root.left  # Swap left and right children
-        self.invertTree(root.left)
-        self.invertTree(root.right)
+        self.invert_tree(root.left)
+        self.invert_tree(root.right)
         return root
 
-    def invertTreeOptional(
-            self,
-            root: Optional[TreeNode]) -> Optional[TreeNode]:
+    def invert_tree_optional(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        """Invert tree using optional approach.
+
+        Preorder traversal to invert the tree.
+        """
+
         # Preorder traversal to invert the tree
         def preorder_invert(node: Optional[TreeNode]):
+            """Preorder invert function."""
             if not node:
                 return
             # Swap left and right children
@@ -38,9 +50,11 @@ class Solution:
 
     # Serialize the tree in inorder traversal
     def inorder_traversal(self, root: Optional[TreeNode]) -> List[int]:
+        """inorder_traversal function."""
         result = []
 
         def inorder(node: Optional[TreeNode]):
+            """inorder function."""
             if not node:
                 return
             inorder(node.left)
@@ -66,10 +80,11 @@ if __name__ == "__main__":
     root.left.right = TreeNode(5)
 
     solution = Solution()
-    inverted_root = solution.invertTree(root)
+    inverted_root = solution.invert_tree(root)
 
     # Function to print the tree in pre-order for verification
     def print_tree(node):
+        """print_tree function."""
         if not node:
             return
         print(node.val, end=" ")

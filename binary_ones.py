@@ -1,5 +1,9 @@
+"""Count Binary Substrings - Count consecutive ones and zeros."""
+
+
 # this logic is broken and would be fixed later
-def oneCounter(n):
+def one_counter(n):
+    """one_counter function."""
     arrayList = []
     b = 0
     while n > 2:
@@ -14,7 +18,7 @@ def oneCounter(n):
 
 
 if __name__ == "__main__":
-    c = oneCounter(6)
+    c = one_counter(6)
     counter = 0
     consecutiveCounter = 0
     print(c)

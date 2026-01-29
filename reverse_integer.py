@@ -1,8 +1,13 @@
+"""Reverse Integer - Reverse digits of integer."""
+
 import math
 
 
 class Solution:
+    """Solution class."""
+
     def reverse(self, x: int) -> int:
+        """reverse function."""
         res = 0
         sign = False
         if x < 0:

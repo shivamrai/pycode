@@ -1,21 +1,22 @@
-"""def recursiveFibonacci(n):
+"""def recursive_fibonacci(n):
     if(n==0):
         return 0
     if(n==1):
         return 1
     else:
-        return recursiveFibonacci(n-1)+recursiveFibonacci(n-2)
+        return recursive_fibonacci(n-1)+recursive_fibonacci(n-2)
 
 #calling the function in main
 n = print("Enter a number:")
-#summation = recursiveFibonacci(n)
+#summation = recursive_fibonacci(n)
 print("Summation of Fibonacci series:")
 i=0
 for i in range(n):
-    print(recursiveFibonacci(i)),"""
+    print(recursive_fibonacci(i)),"""
 
 
 def fibonacci(n):
+    """fibonacci function."""
     if n <= 1:
         return n
     else:
@@ -27,18 +28,19 @@ def fibonacci(n):
     print(fibonacci(n)) """
 
 
-def fibDynamicTopDown(n):
+def fib_dynamic_top_down(n):
+    """fib_dynamic_top_down function."""
     if n in range(0, 1):
         return 1
-    """ fibDynamicTopDown(0)=1
-    fibDynamicTopDown(1)=1 """
+    """ fib_dynamic_top_down(0)=1
+    fib_dynamic_top_down(1)=1 """
     for i in range(2, n):
-        # fibDynamicTopDown(n) = fibDynamicTopDown(n-2)+fibDynamicTopDown(n-1)
-        return int(fibDynamicTopDown(i - 2) + fibDynamicTopDown(i - 1))
+        # fib_dynamic_top_down(n) = fib_dynamic_top_down(n-2)+fib_dynamic_top_down(n-1)
+        return int(fib_dynamic_top_down(i - 2) + fib_dynamic_top_down(i - 1))
 
 
 n = int(input("Enter number of terms:"))
 print("Fibonacci sequence:")
-# n1 = fibDynamicTopDown(n)
+# n1 = fib_dynamic_top_down(n)
 for i in range(0, n):
-    print(fibDynamicTopDown(n))
+    print(fib_dynamic_top_down(n))

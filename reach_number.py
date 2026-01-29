@@ -1,5 +1,11 @@
+"""Reach Number - Find steps to reach target."""
+
+
 class Solution:
-    def reachNumber(self, target: int) -> int:
+    """Solution class."""
+
+    def reach_number(self, target: int) -> int:
+        """reach_number function."""
         num = 0
         move = 1
         ctr = 0
@@ -15,4 +21,4 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(x.reachNumber(-2))
+    print(x.reach_number(-2))

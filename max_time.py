@@ -1,5 +1,11 @@
+"""Maximum Time - Find valid time with maximum hour/minute."""
+
+
 class Solution:
-    def largestTimeFromDigits(arr) -> str:
+    """Solution class."""
+
+    def largest_time_from_digits(arr) -> str:
+        """largest_time_from_digits function."""
         ptr1, ptr2, ptr3, ptr4 = 0, 1, 2, 3
         time, maxtime = 0, 0
         hour, mins = 0, 0
@@ -161,12 +167,7 @@ class Solution:
         print(finalTimeStr)
         if len(finalTimeStr) == 3:
             finalTimeStr = "0" + finalTimeStr
-        return (
-            finalTimeStr[0] +
-            finalTimeStr[1] +
-            ":" +
-            finalTimeStr[2] +
-            finalTimeStr[3] if valid else "")
+        return finalTimeStr[0] + finalTimeStr[1] + ":" + finalTimeStr[2] + finalTimeStr[3] if valid else ""
 
     if __name__ == "__main__":
-        print(largestTimeFromDigits([1, 9, 6, 0]))
+        print(largest_time_from_digits([1, 9, 6, 0]))

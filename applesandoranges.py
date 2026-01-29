@@ -1,5 +1,9 @@
+"""Apples and Oranges - Count fruits within distance ranges."""
+
+
 # Complete the countApplesAndOranges function below.
-def countApplesAndOranges(s, t, a, b, apples, oranges):
+def count_apples_and_oranges(s, t, a, b, apples, oranges):
+    """count_apples_and_oranges function."""
     countofApples = 0
     countofOranges = 0
     for apple in range(len(apples)):
@@ -38,4 +42,4 @@ if __name__ == "__main__":
 
     oranges = [5, -6]
 
-    countApplesAndOranges(s, t, a, b, apples, oranges)
+    count_apples_and_oranges(s, t, a, b, apples, oranges)

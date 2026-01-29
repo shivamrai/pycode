@@ -1,4 +1,8 @@
-def diagonalDifference(arr):
+"""Matrix Sum - Calculate sum of matrix elements."""
+
+
+def diagonal_difference(arr):
+    """diagonal_difference function."""
     sumrightdiagonal = 0
     sumleftdiagonal = 0
     rows = len(arr)
@@ -38,5 +42,5 @@ arr1 = [
     [-3, 4, 6, -7, -7, -8, -3, 9, -6],
     [-2, 0, 5, 4, 4, 4, -3, 3, 0],
 ]
-result = diagonalDifference(arr)
+result = diagonal_difference(arr)
 print(result)

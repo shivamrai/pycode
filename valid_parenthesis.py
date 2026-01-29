@@ -1,4 +1,8 @@
-def isValid(s):
+"""Valid Parentheses - Check if parentheses valid."""
+
+
+def is_valid(s):
+    """is_valid function."""
     # openBracketCounter = 0
     # openSquareCounter = 0
     # openRoundCounter = 0
@@ -43,5 +47,5 @@ def isValid(s):
 
 if __name__ == "__main__":
     isValidParantheis = False
-    s = isValid("([)]")
+    s = is_valid("([)]")
     print(s)

@@ -1,4 +1,8 @@
+"""List Primes - Generate list of prime numbers."""
+
+
 def find_primes(listall):
+    """find_primes function."""
     # def is_prime():
     list1 = []
     for x in listall:
@@ -10,6 +14,7 @@ def find_primes(listall):
 
 
 def is_prime(n):
+    """is_prime function."""
     c = False
     if n == 2:
         c = True

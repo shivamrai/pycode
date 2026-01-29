@@ -1,4 +1,8 @@
-def maxProfit(prices):
+"""Best Time to Buy Sell Stock - Maximum profit from stocks."""
+
+
+def max_profit(prices):
+    """max_profit function."""
     if (min(prices)) == min[:-1]:
         return 0
 

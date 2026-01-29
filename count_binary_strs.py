@@ -21,7 +21,10 @@ Explanation: There are 4 substrings: "10", "01", "10", "01" that have equal numb
 
 
 class Solution:
-    def countBinarySubstrings(self, s: str) -> int:
+    """Solution class."""
+
+    def count_binary_substrings(self, s: str) -> int:
+        """count_binary_substrings function."""
         # when consecutive 0 is encountered, count the number of consecutive
         # 1's and vice versa
         groups: list[int] = []
@@ -54,8 +57,8 @@ if __name__ == "__main__":
     solution = Solution()
     # Example 1
     s1 = "00110011"
-    print(solution.countBinarySubstrings(s1))  # Output: 6
+    print(solution.count_binary_substrings(s1))  # Output: 6
 
     # Example 2
     s2 = "10101"
-    print(solution.countBinarySubstrings(s2))  # Output: 4
+    print(solution.count_binary_substrings(s2))  # Output: 4

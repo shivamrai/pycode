@@ -1,5 +1,11 @@
+"""Remove Duplicates - Remove duplicate elements."""
+
+
 class Solution:
-    def removeDuplicates(self, nums: list) -> int:
+    """Solution class."""
+
+    def remove_duplicates(self, nums: list) -> int:
+        """remove_duplicates function."""
         dup = 0
         size = len(nums)
         i = 1
@@ -17,4 +23,4 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(x.removeDuplicates([1, 1, 1, 2, 2, 3]))
+    print(x.remove_duplicates([1, 1, 1, 2, 2, 3]))

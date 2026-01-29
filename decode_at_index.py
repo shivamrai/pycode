@@ -1,5 +1,11 @@
+"""Decode String at Index - Find character at decoded position."""
+
+
 class Solution:
-    def decodeAtIndex(self, S: str, K: int) -> str:
+    """Solution class."""
+
+    def decode_at_index(self, S: str, K: int) -> str:
+        """decode_at_index function."""
         decodeS = ""
         i = 0
         while i < len(S):
@@ -19,4 +25,4 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(x.decodeAtIndex("ha22", 5))
+    print(x.decode_at_index("ha22", 5))

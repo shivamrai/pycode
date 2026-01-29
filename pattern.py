@@ -1,4 +1,8 @@
+"""Pattern - Implement pattern matching."""
+
+
 def drawpattern(n):
+    """drawpattern function."""
     # counter = 1
     # handle spaces and then handle stars
 

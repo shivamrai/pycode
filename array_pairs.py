@@ -1,4 +1,8 @@
-def canArrange(arr, k):
+"""Array Pairs - Check if array can be divided into pairs divisible by 60."""
+
+
+def can_arrange(arr, k):
+    """can_arrange function."""
     result = False
     len_ = len(arr) - 1
     iterations = int(len(arr) / 2)
@@ -12,5 +16,5 @@ if __name__ == "__main__":
     listA = [1, 2, 3, 4, 5, 10, 6, 7, 8, 9]
     number = 5
     boolNumber = False
-    boolNumber = canArrange(listA, number)
+    boolNumber = can_arrange(listA, number)
     print(boolNumber)

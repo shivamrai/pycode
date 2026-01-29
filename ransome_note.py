@@ -24,7 +24,10 @@ https://leetcode.com/problems/ransom-note/
 
 
 class Solution:
-    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+    """Solution class."""
+
+    def can_construct(self, ransomNote: str, magazine: str) -> bool:
+        """can_construct function."""
         mag_dict = {}
         for x in magazine:
             if x in mag_dict:
@@ -43,15 +46,15 @@ if __name__ == "__main__":
     solution = Solution()
     ransomNote = "a"
     magazine = "b"
-    result = solution.canConstruct(ransomNote, magazine)
+    result = solution.can_construct(ransomNote, magazine)
     print(f"Can construct '{ransomNote}' from '{magazine}': {result}")
 
     ransomNote = "aa"
     magazine = "ab"
-    result = solution.canConstruct(ransomNote, magazine)
+    result = solution.can_construct(ransomNote, magazine)
     print(f"Can construct '{ransomNote}' from '{magazine}': {result}")
 
     ransomNote = "aa"
     magazine = "aab"
-    result = solution.canConstruct(ransomNote, magazine)
+    result = solution.can_construct(ransomNote, magazine)
     print(f"Can construct '{ransomNote}' from '{magazine}': {result}")

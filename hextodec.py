@@ -1,4 +1,8 @@
+"""Hex to Decimal - Convert hexadecimal to decimal."""
+
+
 def hextodecimal(array: list):
+    """hextodecimal function."""
     convertedArray = []
     for item in array:
         convertedArray.append(int(item), 10)

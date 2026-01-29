@@ -1,5 +1,11 @@
+"""Spiral Matrix Traversal - Traverse matrix in spiral order."""
+
+
 class Solution:
-    def spiralOrder(self, matrix):
+    """Solution class."""
+
+    def spiral_order(self, matrix):
+        """spiral_order function."""
         soln = []
         if len(matrix) == 0:
             return soln
@@ -24,4 +30,4 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(x.spiralOrder([[3], [2]]))
+    print(x.spiral_order([[3], [2]]))

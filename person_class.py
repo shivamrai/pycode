@@ -1,14 +1,21 @@
+"""Person Class - Implement person class."""
+
+
 class Person:
+    """Person class."""
+
     initialAge = 0
 
     def __init__(self, initialAge):
+        """__init__ function."""
         # Add some more code to run some checks on initialAge
         self.age = initialAge
         if self.age < 0:
             print("Age is not valid, setting age to 0.")
             self.age = 0
 
-    def amIOld(self):
+    def am_i_old(self):
+        """am_i_old function."""
         # Do some computations in here and print out the correct statement to
         # the console
         if self.age < 13:
@@ -18,7 +25,8 @@ class Person:
         else:
             print("You are old.")
 
-    def yearPasses(self):
+    def year_passes(self):
+        """year_passes function."""
         # Increment the age of the person in here
         self.age = self.age + 1
 
@@ -26,5 +34,5 @@ class Person:
 if __name__ == "__main__":
     age = 13
     p = Person(age)
-    p.amIOld()
-    p.yearPasses()
+    p.am_i_old()
+    p.year_passes()

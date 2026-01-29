@@ -1,5 +1,11 @@
+"""Maximum Ascending Subarray Sum - Find max sum of increasing subarray."""
+
+
 class Solution:
-    def maxAscendingSum(self, nums: list) -> int:
+    """Solution class."""
+
+    def max_ascending_sum(self, nums: list) -> int:
+        """max_ascending_sum function."""
         prev, total, maxTotal = 0, 0, 0
         for n in nums:
             if prev < n:
@@ -13,5 +19,5 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(x.maxAscendingSum([10, 20, 30, 5, 10, 50]))
-    print(x.maxAscendingSum([100, 10, 1]))
+    print(x.max_ascending_sum([10, 20, 30, 5, 10, 50]))
+    print(x.max_ascending_sum([100, 10, 1]))

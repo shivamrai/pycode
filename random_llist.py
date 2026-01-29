@@ -1,3 +1,4 @@
+"""Random Node from Linked List - Return random node."""
 
 import random
 
@@ -5,12 +6,17 @@ import random
 
 
 class ListNode:
+    """ListNode class."""
+
     def __init__(self, val=0, next=None):
+        """__init__ function."""
         self.val = val
         self.next = next
 
 
 class Solution:
+    """Solution class."""
+
     def __init__(self, head: ListNode):
         """
         @param head The linked list's head.
@@ -19,25 +25,25 @@ class Solution:
         self.head = head
         head.next = None
 
-    def getRandom(self) -> int:
+    def get_random(self) -> int:
         """
         Returns a random node's value.
         """
         dummy = self.head
         len = 0
-        while (dummy):
+        while dummy:
             dummy = dummy.next
             len += 1
         rRange = random.randint(0, len - 1)
         for i in range(0, rRange - 1):
             self.head = self.head.next
-        if (self.head):
+        if self.head:
             return self.head.val
         else:
             return -1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Init a singly linked list [1,2,3].
     # dead = ListNode(1)
     # head.next = ListNode(2)

@@ -8,7 +8,8 @@ Basically there are 2 portions of a list, sorted one and unsorted one. This algo
 unsorted portion to sorted portion."""
 
 
-def insertionSort(unsortedlist):
+def insertion_sort(unsortedlist):
+    """insertion_sort function."""
     # sortedlist=[]
     # i=1
     # running index from position 1(2nd element of list, assuming 1st element
@@ -30,4 +31,4 @@ def insertionSort(unsortedlist):
 
 unsortedlist = [6, 7, 2, 3, 1]
 print("The Unsorted list is:", unsortedlist)
-print("The Sorted list is:", insertionSort(unsortedlist))
+print("The Sorted list is:", insertion_sort(unsortedlist))

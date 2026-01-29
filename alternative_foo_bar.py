@@ -1,14 +1,20 @@
+"""Alternative Foo Bar - Print Foo and Bar in alternating pattern."""
+
 # Altenative thread Sync using Python event thread
 import threading
 
 
 class FooBar:
+    """FooBar class."""
+
     def __init__(self, n):
+        """__init__ function."""
         self.n = n
         self.ev_foo = threading.Event()
         self.ev_bar = threading.Event()
 
     def foo(self, printFoo: "Callable[[], None]") -> None:
+        """foo function."""
 
         for i in range(self.n):
             if self.ev_foo.is_set():
@@ -19,6 +25,7 @@ class FooBar:
             self.ev_foo.set()
 
     def bar(self, printBar: "Callable[[], None]") -> None:
+        """bar function."""
 
         for i in range(self.n):
             self.ev_foo.wait()

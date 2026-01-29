@@ -1,4 +1,8 @@
-def maxArea(height) -> int:
+"""Water Tank - Calculate water trapped."""
+
+
+def max_area(height) -> int:
+    """max_area function."""
     # area_max = -32768
     # area = 0
     # for i in range(0,len(height)-1):
@@ -25,4 +29,4 @@ def maxArea(height) -> int:
 
 if __name__ == "__main__":
     height = [1, 1]
-    print(maxArea(height))
+    print(max_area(height))

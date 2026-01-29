@@ -1,5 +1,11 @@
+"""Max Distance Between Same Characters."""
+
+
 class Solution:
-    def maxLengthBetweenEqualCharacters(self, s: str) -> int:
+    """Solution class."""
+
+    def max_length_between_equal_characters(self, s: str) -> int:
+        """max_length_between_equal_characters function."""
         distance = 0
         maxDistance = -1
         freq = {}
@@ -15,8 +21,4 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(
-        x.maxLengthBetweenEqualCharacters(
-            "ygtqdztaduxlsaacrwgtewywwchlnqzgjxhqgdhybncgaifonbe"
-        )
-    )
+    print(x.max_length_between_equal_characters("ygtqdztaduxlsaacrwgtewywwchlnqzgjxhqgdhybncgaifonbe"))

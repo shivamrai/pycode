@@ -6,14 +6,20 @@ from typing import Optional
 
 # Definition for a binary tree node.
 class TreeNode:
+    """TreeNode class."""
+
     def __init__(self, val=0, left=None, right=None):
+        """__init__ function."""
         self.val = val
         self.left = left
         self.right = right
 
 
 class Solution:
-    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+    """Solution class."""
+
+    def is_same_tree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        """is_same_tree function."""
         if not p and not q:
             return True
 
@@ -23,9 +29,7 @@ class Solution:
             return False
 
         # Recursively check left and right subtrees
-        return self.isSameTree(
-            p.left, q.left) and self.isSameTree(
-            p.right, q.right)
+        return self.is_same_tree(p.left, q.left) and self.is_same_tree(p.right, q.right)
 
 
 if __name__ == "__main__":
@@ -46,4 +50,4 @@ if __name__ == "__main__":
     root2.right = TreeNode(3)
 
     solution = Solution()
-    print(solution.isSameTree(root1, root2))  # Output: True
+    print(solution.is_same_tree(root1, root2))  # Output: True

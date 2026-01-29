@@ -37,11 +37,7 @@ class BankingSystem:
         self.accounts[account_id] = 0
         return True
 
-    def deposit(
-            self,
-            timestamp: int,
-            account_id: str,
-            amount: int) -> int | None:
+    def deposit(self, timestamp: int, account_id: str, amount: int) -> int | None:
         """Deposit money into an account.
 
         Args:

@@ -1,5 +1,9 @@
+"""2D Array Hourglass - Find maximum hourglass sum."""
+
+
 # Complete the hourglassSum function below.
-def hourglassSum(arr):
+def hourglass_sum(arr):
+    """hourglass_sum function."""
     largestSum = -32767
     currentSum = -32767
     i = 0
@@ -33,5 +37,5 @@ if __name__ == "__main__":
         [0, 0, 1, 2, 4, 0],
     ]
     print(arr)
-    largestSum = hourglassSum(arr)
+    largestSum = hourglass_sum(arr)
     print(largestSum)

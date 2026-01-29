@@ -1,5 +1,11 @@
+"""Get Maximum Generated - Find maximum in generated sequence."""
+
+
 class Solution:
-    def getMaximumGenerated(self, n: int) -> int:
+    """Solution class."""
+
+    def get_maximum_generated(self, n: int) -> int:
+        """get_maximum_generated function."""
         lmax = -64
         num = []
         num.append(0)
@@ -16,4 +22,4 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.getMaximumGenerated(7))
+    print(s.get_maximum_generated(7))

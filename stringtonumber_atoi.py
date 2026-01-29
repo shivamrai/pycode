@@ -1,4 +1,8 @@
-def myAtoi(str):
+"""String to Number - Convert string to integer."""
+
+
+def my_atoi(str):
+    """my_atoi function."""
     sign = 1
     num = 0
     if str.strip == "":
@@ -25,4 +29,4 @@ def myAtoi(str):
 if __name__ == "__main__":
     str = "     -49 is here"
     print(str.strip())
-    print(myAtoi(str))
+    print(my_atoi(str))

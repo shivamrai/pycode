@@ -1,4 +1,8 @@
+"""Min-Max Sum - Calculate sum excluding min/max."""
+
+
 def minmaxsum(arr):
+    """minmaxsum function."""
     for i in range(len(arr)):
         min = i
         for j in range(len(arr)):

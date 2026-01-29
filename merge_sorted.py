@@ -1,4 +1,8 @@
-def mergeSorted(nums1, nums2):
+"""Merge Sorted Array - Merge two sorted arrays."""
+
+
+def merge_sorted(nums1, nums2):
+    """merge_sorted function."""
     i, j, k = 0, 0, 0
     combined = []
     while i < len(nums1):
@@ -17,4 +21,4 @@ if __name__ == "__main__":
     b = 3
     c = [2, 5, 6]
     d = 3
-    mergeSorted(a, c)
+    merge_sorted(a, c)

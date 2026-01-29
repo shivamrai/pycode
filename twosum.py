@@ -1,6 +1,12 @@
+"""Two Sum - Find two numbers that sum to target."""
+
+
 class TwoSum:
+    """TwoSum class."""
+
     @staticmethod
-    def twoSum(givenList, target):
+    def two_sum(givenList, target):
+        """two_sum function."""
         listanswer = []
         for i, i1 in enumerate(givenList):
             for j, j1 in enumerate(givenList):
@@ -11,7 +17,8 @@ class TwoSum:
             return listanswer
 
     @staticmethod
-    def twoSumDict(givenList, target):
+    def two_sum_dict(givenList, target):
+        """two_sum_dict function."""
         num_dict = {}
         for num in givenList:
             complement = target - num
@@ -22,12 +29,13 @@ class TwoSum:
 
     @staticmethod
     def main():
+        """main function."""
         listA = [3, 2, 4]
         sum = 5
-        listB = TwoSum.twoSum(listA, sum)
+        listB = TwoSum.two_sum(listA, sum)
         print(listB)
 
 
 if __name__ == "__main__":
     TwoSum.main()
-    TwoSum.twoSumDict([3, 2, 4], 6)
+    TwoSum.two_sum_dict([3, 2, 4], 6)

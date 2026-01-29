@@ -1,5 +1,11 @@
+"""Baseball Game - Calculate score with special operations."""
+
+
 class Solution:
-    def calPoints(self, ops: list) -> int:
+    """Solution class."""
+
+    def cal_points(self, ops: list) -> int:
+        """cal_points function."""
         record = []
         for i in range(len(ops)):
             if ops[i] == "+":
@@ -19,4 +25,4 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(x.calPoints(["5", "-2", "4", "C", "D", "9", "+", "+"]))
+    print(x.cal_points(["5", "-2", "4", "C", "D", "9", "+", "+"]))

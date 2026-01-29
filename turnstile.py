@@ -1,8 +1,12 @@
-def turnstileTimes(numCustomers, arrTime, direction):
+"""Turnstile - Turnstile entry/exit tracking."""
+
+
+def turnstile_times(numCustomers, arrTime, direction):
+    """turnstile_times function."""
     entryTime = []
     exitTime = []
     for i in range(0, numCustomers):
-        if (direction[i] == 0):
+        if direction[i] == 0:
             entryTime.append(i, arrTime[i], direction[i])
         else:
             exitTime.append(i, arrTime[i], direction[i])
@@ -20,16 +24,17 @@ def turnstileTimes(numCustomers, arrTime, direction):
 
 
 def compare(enterTime, exitTime, time, status):
+    """compare function."""
     enterTime -= time
     exitTime -= time
-    if (enterTime < 0):
+    if enterTime < 0:
         enterTime = 0
-    if (exitTime < 0):
+    if exitTime < 0:
         exitTime
-    if (enterTime < exitTime):
+    if enterTime < exitTime:
         return -1
-    if (enterTime == exitTime):
-        if (status == 1):
+    if enterTime == exitTime:
+        if status == 1:
             return 1
         else:
             return -1
@@ -40,4 +45,4 @@ if __name__ == "__main__":
     numCustomers = 4
     arrTime = [0, 0, 1, 5]
     direction = [0, 1, 1, 0]
-    print(turnstileTimes(numCustomers, arrTime, direction))
+    print(turnstile_times(numCustomers, arrTime, direction))

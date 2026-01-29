@@ -42,7 +42,10 @@ Output: "A"
 
 
 class Solution:
+    """Solution class."""
+
     def convert(self, s: str, numRows: int) -> str:
+        """convert function."""
         if numRows == 1 or numRows >= len(s):
             return s
 

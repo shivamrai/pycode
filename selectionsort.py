@@ -1,3 +1,6 @@
+"""Selection Sort - Sort using selection sort algorithm."""
+
+
 # ""
 # Algorithm
 # 1. Find the minimum value in the list
@@ -6,6 +9,7 @@
 # This algorithm is	called selection sort since it repeatedly selects the smallest element.
 # ""
 def selectionsort(unsortedlist):
+    """selectionsort function."""
     # min=a[0]
     for i in range(len(unsortedlist)):
         min = i

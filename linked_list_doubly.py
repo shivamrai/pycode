@@ -1,13 +1,21 @@
+"""Doubly Linked List - Implement doubly linked list."""
+
+
 class Node:
+    """Node class."""
+
     def __init__(self, val):
+        """__init__ function."""
         self.val = val
         self.next = None
         self.prev = None
 
     def __repr__(self):
+        """__repr__ function."""
         return "Node data is = {}".format(self.val)
 
     def getval(self):
+        """getval function."""
         return self.val
 
     def setval(self, new_val):

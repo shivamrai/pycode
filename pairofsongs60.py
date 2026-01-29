@@ -1,5 +1,11 @@
+"""Pairs of Songs - Find pairs with total duration 60 seconds."""
+
+
 class Solution:
-    def numPairsDivisibleBy60(self, time) -> int:
+    """Solution class."""
+
+    def num_pairs_divisible_by60(self, time) -> int:
+        """num_pairs_divisible_by60 function."""
         dp = [0] * 60
         ctr = 0
         for i in range(len(time)):
@@ -13,4 +19,4 @@ class Solution:
 
 if __name__ == "__main__":
     x = Solution()
-    print(x.numPairsDivisibleBy60([[30, 20, 150, 100, 40]]))
+    print(x.num_pairs_divisible_by60([[30, 20, 150, 100, 40]]))

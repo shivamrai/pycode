@@ -1,4 +1,8 @@
+"""Factorial - Calculate factorial of a number."""
+
+
 def factorialfinder(n):
+    """factorialfinder function."""
     if n == 0:
         return 1
     else:

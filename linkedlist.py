@@ -1,12 +1,20 @@
+"""Linked List - Implement singly linked list operations."""
+
+
 class Node:
+    """Node class."""
+
     def __init__(self, val):
+        """__init__ function."""
         self.val = val
         self.next = None
 
     def __repr__(self):
+        """__repr__ function."""
         return "Node data is = {}".format(self.val)
 
     def getval(self):
+        """getval function."""
         return self.val
 
     def setval(self, new_val):
@@ -23,24 +31,29 @@ class Node:
 
 
 class SinglyLinkedList:
+    """SinglyLinkedList class."""
 
     def __init__(self):
+        """__init__ function."""
         self.head = None
         # self.length = 0
 
     def __repr__(self):
+        """__repr__ function."""
         return "SLL object: head={}".format(self.head)
 
-    def isEmpty(self):
+    def is_empty(self):
         """returns true if linked list is empty"""
         return self.head is None
 
-    def addFront(self, val):
+    def add_front(self, val):
+        """add_front function."""
         temp = Node(val)
         temp.setnext(self.head)
         self.head = temp
 
     def size(self):
+        """size function."""
         size = 0
         if self.head is None:
             return size
@@ -52,6 +65,7 @@ class SinglyLinkedList:
         return size
 
     def search(self, searchterm):
+        """search function."""
         if self.head is None:
             return "Linked list is empty, no nodes to search"
         current = self.head
@@ -63,7 +77,8 @@ class SinglyLinkedList:
         return False
 
     def remove(self, val):
-        if self.isEmpty():
+        """remove function."""
+        if self.is_empty():
             return "List is empty, nothing to remove"
         current = self.head
         previous = None
@@ -94,10 +109,10 @@ if __name__ == "__main__":
     # print(node.getnext())
     node1 = Node(4)
     sll = SinglyLinkedList()
-    print(sll.isEmpty())
+    print(sll.is_empty())
     sll.head = node1
-    print(sll.isEmpty())
-    sll.addFront("Barry")
+    print(sll.is_empty())
+    sll.add_front("Barry")
     print(sll.head)
     print(sll.size())
     print(sll.search("barry"))

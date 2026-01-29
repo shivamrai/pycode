@@ -1,4 +1,8 @@
-def isPerfectSquare(num) -> bool:
+"""Perfect Square - Check if number is perfect square."""
+
+
+def is_perfect_square(num) -> bool:
+    """is_perfect_square function."""
     left = 1
     right = num
     while left < right:
@@ -33,4 +37,4 @@ def isPerfectSquare(num) -> bool:
 
 if __name__ == "__main__":
     # s = Solution()
-    print(isPerfectSquare(104976))
+    print(is_perfect_square(104976))

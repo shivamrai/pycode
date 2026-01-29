@@ -1,8 +1,13 @@
+"""Partition Labels - Partition string with no repeated characters."""
+
 import unittest
 
 
 class Solution:
-    def partitionLabels(self, S: str) -> list:
+    """Solution class."""
+
+    def partition_labels(self, S: str) -> list:
+        """partition_labels function."""
         # keep track of end Index
 
         end_idx = [0] * 26
@@ -22,9 +27,12 @@ class Solution:
 
 
 class TestSolution(unittest.TestCase):
+    """TestSolution class."""
+
     def testpartitionlabels(self):
+        """testpartitionlabels function."""
         x = Solution()
-        res = x.partitionLabels("ababcbacadefegdehijhklij")
+        res = x.partition_labels("ababcbacadefegdehijhklij")
         self.assertEqual(res, [9, 7, 8])
 
 

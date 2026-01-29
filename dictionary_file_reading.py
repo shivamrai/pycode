@@ -1,3 +1,5 @@
+"""Dictionary File Reading - Process dictionary file."""
+
 if __name__ == "__main__":
     # THis program is basically a dictionary cheatsheet
     counts = dict()

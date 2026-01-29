@@ -1,5 +1,9 @@
+"""Song Selector - Select songs based on criteria."""
+
+
 # song selector
-def songIdentifier(songs):
+def song_identifier(songs):
+    """song_identifier function."""
     count = 0
     for i in range(0, len(songs)):
         for j in range(0, len(songs)):
@@ -10,4 +14,4 @@ def songIdentifier(songs):
 
 if __name__ == "__main__":
     songs = [60, 60, 60]
-    print(songIdentifier(songs))
+    print(song_identifier(songs))

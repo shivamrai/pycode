@@ -17,13 +17,18 @@ Use the test cases below to guide you!"""
 
 
 class Classy(object):
+    """Classy class."""
+
     def __init__(self):
+        """__init__ function."""
         self.items = []
 
-    def addItem(self, stringObj):
+    def add_item(self, stringObj):
+        """add_item function."""
         self.items.append(stringObj)
 
-    def getClassiness(self):
+    def get_classiness(self):
+        """get_classiness function."""
         points = 0
         for i in self.items:
             if i == "tophat":
@@ -41,19 +46,19 @@ class Classy(object):
 me = Classy()
 
 # Should be 0
-print(me.getClassiness())
+print(me.get_classiness())
 
 
-me.addItem("tophat")
+me.add_item("tophat")
 # Should be 2
-print(me.getClassiness())
+print(me.get_classiness())
 
-me.addItem("bowtie")
-me.addItem("jacket")
-me.addItem("monocle")
+me.add_item("bowtie")
+me.add_item("jacket")
+me.add_item("monocle")
 # Should be 11
-print(me.getClassiness())
+print(me.get_classiness())
 
-me.addItem("bowtie")
+me.add_item("bowtie")
 # Should be 15
-print(me.getClassiness())
+print(me.get_classiness())

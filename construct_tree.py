@@ -1,8 +1,12 @@
+"""Construct Binary Tree - Build tree from traversals."""
+
 from typing import Optional
 
 
 class TreeNode:
+    """TreeNode class."""
     def __init__(self, val=0, left=None, right=None):
+        """__init__ function."""
         self.val = val
         self.left = left
         self.right = right
@@ -10,15 +14,17 @@ class TreeNode:
     # Function to print the tree in level order for verification
     @staticmethod
     def print_tree(node):
+        """print_tree function."""
         if not node:
             return "None"
         return f"{node.val}, {TreeNode.print_tree(node.left)}, {TreeNode.print_tree(node.right)}"
 
 
 class Solution:
+    """Solution class."""
 
-    def helper(self, pre_start: int, in_start: int,
-               in_end: int) -> Optional[TreeNode]:
+    def helper(self, pre_start: int, in_start: int, in_end: int) -> Optional[TreeNode]:
+        """Helper function to construct tree from preorder and inorder."""
         if pre_start >= len(preorder) or in_start > in_end:
             return None
 
@@ -41,7 +47,8 @@ class Solution:
 
         return root
 
-    def buildTree(
+    def build_tree(
+        """build_tree function."""
             self,
             preorder: list[int],
             inorder: list[int]) -> Optional[TreeNode]:
@@ -61,6 +68,6 @@ if __name__ == "__main__":
     # output = "3, 9, 20, None, None, 15,7
 
     solution = Solution()
-    root = solution.buildTree(preorder, inorder)
+    root = solution.build_tree(preorder, inorder)
 
     print(TreeNode.print_tree(root))

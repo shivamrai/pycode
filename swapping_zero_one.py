@@ -1,4 +1,8 @@
-def minMoves(arr):
+"""Swapping Zeros and Ones - Swap zeros and ones."""
+
+
+def min_moves(arr):
+    """min_moves function."""
     countOnes = 0
     displacement = 0
     for element in arr:
@@ -12,4 +16,4 @@ def minMoves(arr):
 
 
 if __name__ == "__main__":
-    print(minMoves([1, 1, 1, 1, 0, 1, 0, 1]))
+    print(min_moves([1, 1, 1, 1, 0, 1, 0, 1]))
