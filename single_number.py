@@ -1,4 +1,5 @@
 """Single Number - Find single number in array."""
+from typing import List
 
 
 class solution:

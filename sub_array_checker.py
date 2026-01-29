@@ -14,9 +14,8 @@ class Solution:
                 j += 1
                 if j == m:
                     return True
-            else:
-                i = i - j + 1
-                j = 0
+            i = i - j + 1
+            j = 0
         return False
 
 

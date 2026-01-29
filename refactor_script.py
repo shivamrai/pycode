@@ -142,11 +142,11 @@ def rename_functions(content, mappings):
         # Rename function definition
         pattern = rf'\bdef\s+{re.escape(old_name)}\s*\('
         content = re.sub(pattern, f'def {new_name}(', content)
-        
+
         # Rename self.method calls
         pattern = rf'self\.{re.escape(old_name)}\s*\('
         content = re.sub(pattern, f'self.{new_name}(', content)
-        
+
         # Rename function calls (standalone)
         pattern = rf'\b{re.escape(old_name)}\s*\('
         replacement = f'{new_name}('
@@ -160,11 +160,11 @@ def add_docstrings(content):
     lines = content.split('\n')
     result = []
     i = 0
-    
+
     while i < len(lines):
         line = lines[i]
         result.append(line)
-        
+
         # Check if this is a class definition
         if re.match(r'^\s*class\s+\w+', line):
             indent = len(line) - len(line.lstrip())
@@ -173,7 +173,7 @@ def add_docstrings(content):
                 class_name = re.search(r'class\s+(\w+)', line).group(1)
                 docstring = ' ' * (indent + 4) + f'"""{class_name} class."""'
                 result.append(docstring)
-        
+
         # Check if this is a function/method definition
         elif re.match(r'^\s*def\s+\w+', line):
             indent = len(line) - len(line.lstrip())
@@ -182,9 +182,9 @@ def add_docstrings(content):
                 func_name = re.search(r'def\s+(\w+)', line).group(1)
                 docstring = ' ' * (indent + 4) + f'"""{func_name} function."""'
                 result.append(docstring)
-        
+
         i += 1
-    
+
     return '\n'.join(result)
 
 
@@ -195,7 +195,7 @@ def process_file(filepath, skip_already_refactored=True):
             content = f.read()
 
         filename = os.path.basename(filepath)
-        
+
         # Skip already manually refactored files
         if skip_already_refactored and ("Args:" in content or "Returns:" in content):
             print(f"Skipped (already refactored): {filename}")
@@ -247,11 +247,11 @@ def main():
 
     processed = 0
     skipped = 0
-    
+
     for py_file in python_files:
         if py_file.name in skip_files or not py_file.name.endswith('.py'):
             continue
-        
+
         if process_file(py_file):
             processed += 1
             print(f"✓ Processed: {py_file.name}")

@@ -22,8 +22,7 @@ def my_atoi(str):
         return (2**31) - 1
     elif num < -(2**31):
         return -(2**31)
-    else:
-        return num
+    return num
 
 
 if __name__ == "__main__":

@@ -36,8 +36,7 @@ def compare(enterTime, exitTime, time, status):
     if enterTime == exitTime:
         if status == 1:
             return 1
-        else:
-            return -1
+        return -1
     return 1
 
 

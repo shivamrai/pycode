@@ -1,14 +1,14 @@
-"""Min-Max Sum - Calculate sum excluding min/max."""
+"""Min-Max Sum - Calculate sum excluding min_val/max."""
 
 
 def minmaxsum(arr):
     """minmaxsum function."""
     for i in range(len(arr)):
-        min = i
+        min_val = i
         for j in range(len(arr)):
-            if arr[min] < arr[j]:
-                swap = arr[min]
-                arr[min] = arr[j]
+            if arr[min_val] < arr[j]:
+                swap = arr[min_val]
+                arr[min_val] = arr[j]
                 arr[j] = swap
             else:
                 pass

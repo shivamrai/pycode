@@ -11,8 +11,7 @@ def readwordstolist():
         for element in word:
             if element in lst:
                 continue
-            else:
-                lst.append(element)
+            lst.append(element)
 
 
 def emaillist():

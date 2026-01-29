@@ -1,6 +1,5 @@
 """Kth Factor - Find kth smallest factor of n."""
 
-from typing import Sized
 
 
 class Solution:

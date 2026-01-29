@@ -41,8 +41,7 @@ def is_valid(s):
             stack.pop()
     if stack == []:
         return True
-    else:
-        return False
+    return False
 
 
 if __name__ == "__main__":

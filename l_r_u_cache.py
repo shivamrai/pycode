@@ -41,8 +41,7 @@ class LRUCache:
             self.remove(valueToReturn)
             self.add(valueToReturn)
             return valueToReturn.value
-        else:
-            return -1
+        return -1
 
     def add(self, Node):
         """add function."""

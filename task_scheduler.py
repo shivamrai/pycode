@@ -1,4 +1,5 @@
 """Task Scheduler - Schedule tasks with minimum idle time."""
+from typing import List
 
 
 def least_interval(self, tasks: List[str], n: int) -> int:
@@ -17,9 +18,6 @@ def least_interval(self, tasks: List[str], n: int) -> int:
     newLength = (len(tasks)) + n
     k = 0
     print(n)
-    while any(taskTypes.values()):
-        pass
-
     for i in range(0, newLength):
         if i % idlePeriod == 0 and i != 0 and n != 0:
             taskList.append(interval)
@@ -28,6 +26,7 @@ def least_interval(self, tasks: List[str], n: int) -> int:
                 taskList.append(tasks[k])
                 k += 1
     return len(taskList)
+
 
 
 if __name__ == "__main__":

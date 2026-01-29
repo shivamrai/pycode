@@ -3,8 +3,7 @@
         return 0
     if(n==1):
         return 1
-    else:
-        return recursive_fibonacci(n-1)+recursive_fibonacci(n-2)
+    return recursive_fibonacci(n-1)+recursive_fibonacci(n-2)
 
 #calling the function in main
 n = print("Enter a number:")
@@ -19,9 +18,8 @@ def fibonacci(n):
     """fibonacci function."""
     if n <= 1:
         return n
-    else:
-        x = fibonacci(n - 1) + fibonacci(n - 2)
-        return x
+    x = fibonacci(n - 1) + fibonacci(n - 2)
+    return x
 
 
 """ for i in range(n):

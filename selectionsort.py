@@ -10,13 +10,13 @@
 # ""
 def selectionsort(unsortedlist):
     """selectionsort function."""
-    # min=a[0]
+    # min_val =a[0]
     for i in range(len(unsortedlist)):
-        min = i
+        min_val = i
         for j in range(len(unsortedlist)):
-            if unsortedlist[min] < unsortedlist[j]:
-                swap = unsortedlist[min]
-                unsortedlist[min] = unsortedlist[j]
+            if unsortedlist[min_val] < unsortedlist[j]:
+                swap = unsortedlist[min_val]
+                unsortedlist[min_val] = unsortedlist[j]
                 unsortedlist[j] = swap
 
     return unsortedlist

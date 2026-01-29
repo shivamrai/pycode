@@ -12,21 +12,20 @@ def valid_pyramid(A: list) -> bool:
     validPyramidBool = False
     if j == len(A) - 1 or j == 0:
         return False
-    else:
-        while i < j:
-            if A[i] < A[i + 1]:
-                validPyramidBool = True
-            else:
-                validPyramidBool = False
-                return validPyramidBool
-            i += 1
-        while j < len(A) - 1:
-            if A[j] > A[j + 1]:
-                validPyramidBool = True
-            else:
-                validPyramidBool = False
-                break
-            j += 1
+    while i < j:
+        if A[i] < A[i + 1]:
+            validPyramidBool = True
+        else:
+            validPyramidBool = False
+            return validPyramidBool
+        i += 1
+    while j < len(A) - 1:
+        if A[j] > A[j + 1]:
+            validPyramidBool = True
+        else:
+            validPyramidBool = False
+            break
+        j += 1
     return validPyramidBool
 
 

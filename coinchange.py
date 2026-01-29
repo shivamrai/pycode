@@ -15,8 +15,7 @@ class Solution:
             for coin in coins:
                 if i - coin > len(array) or i - coin < 0:
                     continue
-                else:
-                    array[i] = min(array[i - coin] + 1, array[i])
+                array[i] = min(array[i - coin] + 1, array[i])
         return array[-1] if array[-1] != amount + 1 else -1
 
 

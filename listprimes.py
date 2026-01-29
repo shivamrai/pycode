@@ -25,8 +25,7 @@ def is_prime(n):
             if n % m == 0:
                 c = False
                 break
-            else:
-                c = True
+            c = True
     return c
 
 
@@ -34,7 +33,7 @@ if __name__ == "__main__":
     # division primes in list
     number = input("Enter a number: ")
 
-    list = []
+    list_items = []
     while int(number) != -1:
         if int(number) < 0:
             print("Invalid Input")

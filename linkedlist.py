@@ -72,8 +72,7 @@ class SinglyLinkedList:
         while current:
             if current.getval() == searchterm:
                 return True
-            else:
-                current = current.getnext()
+            current = current.getnext()
         return False
 
     def remove(self, val):
@@ -89,9 +88,8 @@ class SinglyLinkedList:
             else:
                 if current.getnext() is None:
                     return "Node not found"
-                else:
-                    previous = current
-                    current = current.getnext()
+                previous = current
+                current = current.getnext()
         if previous is None:
             self.head = current.getnext()
         else:

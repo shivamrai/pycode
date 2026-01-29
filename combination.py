@@ -8,5 +8,4 @@ def listsplice(passedlist):
         total = total + passedlist[i]
     if total % 3 == 0:
         return 1
-    else:
-        return 0
+    return 0

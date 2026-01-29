@@ -39,8 +39,7 @@ class Solution:
             self.head = self.head.next
         if self.head:
             return self.head.val
-        else:
-            return -1
+        return -1
 
 
 if __name__ == "__main__":

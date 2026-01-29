@@ -6,6 +6,7 @@ Created on Tue May 14 11:00:08 2019
 """
 
 # Importing required libraries
+# pylint: disable=import-error
 from sklearn.svm import SVC
 import sqlite3
 import pandas as pd
@@ -19,17 +20,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.naive_bayes import GaussianNB
 from sklearn import preprocessing
-from sklearn.metrics import mean_squared_error
 
 # from sklearn.preprocessing import LabelEncoder as le
-from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import linear_model
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import classification_report, accuracy_score
 from sklearn.model_selection import cross_val_score
 
 
