@@ -14,12 +14,12 @@ class TreeNode:
 class Solution:
     """Solution class."""
 
-    def max_depth(self, root: 'TreeNode') -> int:
+    def max_depth(self, root_node: "TreeNode") -> int:
         """max_depth function."""
-        if not root:
+        if not root_node:
             return 0
-        left_depth = self.max_depth(root.left)
-        right_depth = self.max_depth(root.right)
+        left_depth = self.max_depth(root_node.left)
+        right_depth = self.max_depth(root_node.right)
         return max(left_depth, right_depth) + 1
 
 
@@ -31,10 +31,10 @@ if __name__ == "__main__":
     #     2   3
     #    /
     #   4
-    root = TreeNode(1)
-    root.left = TreeNode(2)
-    root.right = TreeNode(3)
-    root.left.left = TreeNode(4)
+    tree_root = TreeNode(1)
+    tree_root.left = TreeNode(2)
+    tree_root.right = TreeNode(3)
+    tree_root.left.left = TreeNode(4)
 
     solution = Solution()
-    print(solution.max_depth(root))  # Output: 3
+    print(solution.max_depth(tree_root))  # Output: 3

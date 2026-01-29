@@ -21,7 +21,7 @@ def diagonal_difference(arr):
     return abs(sumleftdiagonal - sumrightdiagonal)
 
 
-arr = [[1, 2, 3], [4, 5, 6], [9, 8, 9]]
+sample_matrix = [[1, 2, 3], [4, 5, 6], [9, 8, 9]]
 
 arr1 = [
     [6, 6, 7, -10, 9, -3, 8, 9, -1],
@@ -34,5 +34,5 @@ arr1 = [
     [-3, 4, 6, -7, -7, -8, -3, 9, -6],
     [-2, 0, 5, 4, 4, 4, -3, 3, 0],
 ]
-result = diagonal_difference(arr)
+result = diagonal_difference(sample_matrix)
 print(result)

@@ -13,7 +13,7 @@ class solution:
         counter = []
         nums_list = nums
         nums_list.sort()
-        for i, num in enumerate(nums_list):
+        for num in nums_list:
             if num in counter:
                 counter.remove(num)
             else:
@@ -22,6 +22,6 @@ class solution:
 
 
 if __name__ == "__main__":
-    nums = [2, 1, 2]
+    sample_nums = [2, 1, 2]
     s = solution()
-    s.single_number(nums)
+    s.single_number(sample_nums)

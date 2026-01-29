@@ -1,5 +1,7 @@
 """Solution to LeetCode problem."""
 
+# pylint: disable=duplicate-code
+
 
 def valid_pyramid(A: list) -> bool:
     """valid_pyramid function."""
@@ -10,7 +12,7 @@ def valid_pyramid(A: list) -> bool:
     i = 0
     j = A.index(getMax)
     validPyramidBool = False
-    if j == len(A) - 1 or j == 0:
+    if j in (len(A) - 1, 0):
         return False
     while i < j:
         if A[i] < A[i + 1]:

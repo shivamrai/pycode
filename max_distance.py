@@ -11,7 +11,8 @@ def max_distance(arrays) -> int:
     for i in range(0, len(arrays) - 1):
         maxDistance = max(
             maxDistance,
-            max(abs(minimum - arrays[i + 1][-1]), abs(maximum - arrays[i + 1][0])),
+            abs(minimum - arrays[i + 1][-1]),
+            abs(maximum - arrays[i + 1][0]),
         )
         minimum = min(minimum, arrays[i][0])
         maximum = max(maximum, arrays[i][-1])
