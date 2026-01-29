@@ -1,0 +1,19 @@
+[MASTER]
+disable=
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+    invalid-name,
+    too-few-public-methods,
+    too-many-arguments,
+    too-many-positional-arguments,
+    disallowed-name,
+
+[FORMAT]
+max-line-length=120
+
+[DESIGN]
+max-attributes=10
+max-locals=15
+max-branches=15
+max-statements=50

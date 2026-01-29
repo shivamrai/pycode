@@ -12,12 +12,7 @@ class TreeNode:
     def print_tree(node):
         if not node:
             return "None"
-        return f"{
-            node.val}, {
-            TreeNode.print_tree(
-                node.left)}, {
-                TreeNode.print_tree(
-                    node.right)}"
+        return f"{node.val}, {TreeNode.print_tree(node.left)}, {TreeNode.print_tree(node.right)}"
 
 
 class Solution:

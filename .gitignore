@@ -64,3 +64,8 @@ Thumbs.db
 
 # Pipenv
 Pipfile.lock
+
+# Linting reports
+pylint-fix
+pylint-report.txt
+pylint-fix
