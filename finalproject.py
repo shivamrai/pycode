@@ -271,14 +271,14 @@ def get_goals(matches, team):
     return total_goals
 
 
-def get_last_matches(matches, date, team, x=10):
+def get_last_matches(matches, date, team, _=10):
     """Get the last x matches of a given team."""
 
     # Filter team matches from matches
     team_matches = matches[(matches["home_team_api_id"] == team) | (matches["away_team_api_id"] == team)]
 
     # Filter x last matches from team matches
-    last_matches = team_matches[team_matches.date < date].sort_values(by="date", ascending=False).iloc[0:x, :]
+    last_matches = team_matches[team_matches.date < date].sort_values(by="date", ascending=False).iloc[0:10, :]
 
     # Return last matches
     return last_matches
@@ -295,7 +295,7 @@ def get_last_matches_against_eachother(matches, date, home_team, away_team, x=10
     # Get last x matches
     try:
         last_matches = total_matches[total_matches.date < date].sort_values(by="date", ascending=False).iloc[0:x, :]
-    except Exception as e:
+    except (IndexError, KeyError):
         last_matches = (
             total_matches[total_matches.date < date]
             .sort_values(by="date", ascending=False)
@@ -322,7 +322,7 @@ def get_goals_conceided(matches, team):
     return total_goals
 
 
-def get_match_features(match, matches, x=10):
+def get_match_features(match, matches, _=10):
     """Create match specific features for a given match."""
 
     # Define variables
@@ -331,12 +331,11 @@ def get_match_features(match, matches, x=10):
     away_team = match.away_team_api_id
 
     # Get last x matches of home and away team
-    matches_home_team = get_last_matches(matches, date, home_team, x=10)
-    matches_away_team = get_last_matches(matches, date, away_team, x=10)
+    matches_home_team = get_last_matches(matches, date, home_team, _=10)
+    matches_away_team = get_last_matches(matches, date, away_team, _=10)
 
     # Get last x matches of both teams against each other
     last_matches_against = get_last_matches_against_eachother(matches, date, home_team, away_team, x=3)
-
     # Create goal variables
     home_goals = get_goals(matches_home_team, home_team)
     away_goals = get_goals(matches_away_team, away_team)
@@ -362,7 +361,7 @@ def get_match_features(match, matches, x=10):
     return result.loc[0]
 
 
-def create_feables(matches, fifa, bookkeepers, get_overall=False, horizontal=True, x=10, verbose=True):
+def create_feables(matches, fifa, bookkeepers, get_overall=False, _horizontal=True, _=10, verbose=True):
     """Create and aggregate features and labels for all matches."""
 
     # Get fifa stats features
@@ -373,7 +372,7 @@ def create_feables(matches, fifa, bookkeepers, get_overall=False, horizontal=Tru
     start = time()
 
     # Get match features for all matches
-    match_stats = matches.apply(lambda x: get_match_features(x, matches, x=10), axis=1)
+    match_stats = matches.apply(lambda x: get_match_features(x, matches, _=10), axis=1)
 
     # Create dummies for league ID feature
     dummies = pd.get_dummies(match_stats["league_id"]).rename(columns=lambda x: "League_" + str(x))
@@ -417,7 +416,7 @@ def create_feables(matches, fifa, bookkeepers, get_overall=False, horizontal=Tru
     return feables
 
 
-def explore_data(features, inputs, path):
+def explore_data(features, inputs):
     """Explore data by plotting KDE graphs."""
 
     # Define figure subplots
@@ -426,7 +425,7 @@ def explore_data(features, inputs, path):
 
     # Loop through features
     i = 1
-    for col in features.columns:
+    for _ in features.columns:
 
         # Set subplot and plot format
         sns.set_style("darkgrid")
@@ -463,168 +462,147 @@ def explore_data(features, inputs, path):
 
 
 def main():
-    start = time()
+    """Main function to test all code."""
 
+    # Fetching data
+    # Connecting to database
+    path = r"C:\Users\NIKHIT\Documents\pycode\database.db"  # Insert path here
+    # database = path + 'database.sqlite'
+    conn = sqlite3.connect(path)
 
-# Fetching data
-# Connecting to database
-path = path = r"C:\Users\NIKHIT\Documents\pycode\database.db"  # Insert path here
-# database = path + 'database.sqlite'
-conn = sqlite3.connect(path)
+    # Fetching required data tables
+    player_stats_data = pd.read_sql("SELECT * FROM Player_Attributes;", conn)
+    match_data = pd.read_sql("SELECT * FROM Match;", conn)
 
-# Defining the number of jobs to be run in parallel during grid search
-n_jobs = 1  # Insert number of parallel jobs here
+    # Reduce match data to fulfill run time requirements
+    rows = [
+        "country_id",
+        "league_id",
+        "season",
+        "stage",
+        "date",
+        "match_api_id",
+        "home_team_api_id",
+        "away_team_api_id",
+        "home_team_goal",
+        "away_team_goal",
+        "home_player_1",
+        "home_player_2",
+        "home_player_3",
+        "home_player_4",
+        "home_player_5",
+        "home_player_6",
+        "home_player_7",
+        "home_player_8",
+        "home_player_9",
+        "home_player_10",
+        "home_player_11",
+        "away_player_1",
+        "away_player_2",
+        "away_player_3",
+        "away_player_4",
+        "away_player_5",
+        "away_player_6",
+        "away_player_7",
+        "away_player_8",
+        "away_player_9",
+        "away_player_10",
+        "away_player_11",
+    ]
+    match_data.dropna(subset=rows, inplace=True)
+    match_data = match_data.tail(1500)
 
-# Fetching required data tables
-player_data = pd.read_sql("SELECT * FROM Player;", conn)
-player_stats_data = pd.read_sql("SELECT * FROM Player_Attributes;", conn)
-team_data = pd.read_sql("SELECT * FROM Team;", conn)
-match_data = pd.read_sql("SELECT * FROM Match;", conn)
+    # Generating features, exploring the data, and preparing data for model training
+    # Generating or retrieving already existant FIFA data
+    fifa_data = get_fifa_data(match_data, player_stats_data, data_exists=False)
 
-# Reduce match data to fulfill run time requirements
-rows = [
-    "country_id",
-    "league_id",
-    "season",
-    "stage",
-    "date",
-    "match_api_id",
-    "home_team_api_id",
-    "away_team_api_id",
-    "home_team_goal",
-    "away_team_goal",
-    "home_player_1",
-    "home_player_2",
-    "home_player_3",
-    "home_player_4",
-    "home_player_5",
-    "home_player_6",
-    "home_player_7",
-    "home_player_8",
-    "home_player_9",
-    "home_player_10",
-    "home_player_11",
-    "away_player_1",
-    "away_player_2",
-    "away_player_3",
-    "away_player_4",
-    "away_player_5",
-    "away_player_6",
-    "away_player_7",
-    "away_player_8",
-    "away_player_9",
-    "away_player_10",
-    "away_player_11",
-]
-match_data.dropna(subset=rows, inplace=True)
-match_data = match_data.tail(1500)
-# fifa_stats=get_fifa_stats(match_data, player_stats_data)
-# Generating features, exploring the data, and preparing data for model training
-# Generating or retrieving already existant FIFA data
-fifa_data = get_fifa_data(match_data, player_stats_data, data_exists=False)
+    # Creating features and labels based on data provided
+    bk_cols_selected = ["B365", "BW"]
+    feables = create_feables(match_data, fifa_data, bk_cols_selected, get_overall=True)
+    inputs = feables.drop("match_api_id", axis=1)
+    sns.heatmap(feables.corr())
 
-# Creating features and labels based on data provided
-bk_cols = ["B365", "BW", "IW", "LB", "PS", "WH", "SJ", "VC", "GB", "BS"]
-bk_cols_selected = ["B365", "BW"]
-feables = create_feables(match_data, fifa_data, bk_cols_selected, get_overall=True)
-inputs = feables.drop("match_api_id", axis=1)
-sns.heatmap(feables.corr())
+    # Exploring the data and creating visualizations
+    match_labels = inputs.loc[:, "label"]
+    match_features = inputs.drop("label", axis=1)
+    match_features.head(5)
+    _ = explore_data(match_features, inputs)
 
-# Exploring the data and creating visualizations
-labels = inputs.loc[:, "label"]
-features = inputs.drop("label", axis=1)
-features.head(5)
-feature_details = explore_data(features, inputs, path)
-# getting bookkeeperdata
-bk_data = pd.DataFrame()
-bk_data = get_bookkeeper_data(match_data, bk_cols_selected, horizontal=True)
-print(bk_data)
-# Split our data
-train, test, train_labels, test_labels = train_test_split(features, labels, test_size=0.45, random_state=42)
+    # getting bookkeeperdata
+    bk_data = get_bookkeeper_data(match_data, bk_cols_selected, horizontal=True)
+    print(bk_data)
 
-gnb = GaussianNB()
-model = gnb.fit(train, train_labels)
-# Make predictions
-preds = gnb.predict(test)
-print(preds)
+    # Split our data
+    train, test, train_labels_split, test_labels_split = train_test_split(
+        match_features, match_labels, test_size=0.45, random_state=42
+    )
 
-print(accuracy_score(test_labels, preds))
-for column in feables.columns:
-    if feables[column].dtype == type(object):
-        le = preprocessing.LabelEncoder()
-        feables[column] = le.fit_transform(feables[column])
+    gnb = GaussianNB()
+    gnb.fit(train, train_labels_split)
+    # Make predictions
+    preds = gnb.predict(test)
+    print(preds)
+    print(accuracy_score(test_labels_split, preds))
 
-X = feables.drop(["label"], axis=1).values
-# Y=feables.('label')
-y = feables.filter(["label"]).values
-# knn = KNeighborsClassifier()
+    for column in feables.columns:
+        if feables[column].dtype == type(object):
+            le = preprocessing.LabelEncoder()
+            feables[column] = le.fit_transform(feables[column])
 
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0, random_state=0)
+    X = feables.drop(["label"], axis=1).values
+    y = feables.filter(["label"]).values
 
+    # Split our data
+    train, test, train_labels_split, test_labels_split = train_test_split(
+        match_features, match_labels, test_size=0.33, random_state=42
+    )
 
-# for i in range(0,60):
-#     print("Error in value number",i,(X[i]-y[i]))
-#     time.sleep(1)
+    gnb = GaussianNB()
+    gnb.fit(train, train_labels_split)
+    # Make predictions
+    preds = gnb.predict(test)
+    print(preds)
+    print(accuracy_score(test_labels_split, preds))
 
+    # combined rmse value
+    KNN_clf = KNeighborsClassifier()
+    KNN_clf.fit(train, train_labels_split)
+    preds = KNN_clf.predict(test)
+    print(preds)
+    print(accuracy_score(test_labels_split, preds))
 
-# Split our data
-train, test, train_labels, test_labels = train_test_split(features, labels, test_size=0.33, random_state=42)
+    AB_clf = AdaBoostClassifier(n_estimators=300, random_state=2)
+    AB_clf.fit(train, train_labels_split)
+    preds = AB_clf.predict(test)
+    print(preds)
+    print(accuracy_score(test_labels_split, preds))
 
+    LOG_clf = linear_model.LogisticRegression(multi_class="ovr", solver="sag", class_weight="balanced")
+    LOG_clf.fit(train, train_labels_split)
+    preds = LOG_clf.predict(test)
+    print(preds)
+    print(accuracy_score(test_labels_split, preds))
 
-gnb = GaussianNB()
-model = gnb.fit(train, train_labels)
-# Make predictions
-preds = gnb.predict(test)
-print(preds)
+    R_F = RandomForestClassifier(n_estimators=300, max_depth=3, random_state=2)
+    R_F.fit(train, train_labels_split)
+    preds = R_F.predict(test)
+    print(preds)
+    print(accuracy_score(test_labels_split, preds))
 
-print(accuracy_score(test_labels, preds))
-# print(mean_squared_error(X, y))
-# mean_squared_error(X, y)
+    scores = []
+    num_features = len(train.columns)
+    for idx in range(num_features):
+        col = train.columns[idx]
+        score = np.mean(cross_val_score(R_F, X[col].values.reshape(-1, 1), y, cv=10))
+        scores.append((int(score * 100), col))
 
-# combined rmse value
-KNN_clf = KNeighborsClassifier()
-model = KNN_clf.fit(train, train_labels)
-preds = KNN_clf.predict(test)
-print(preds)
-print(accuracy_score(test_labels, preds))
+    print(sorted(scores, reverse=True))
 
-# rss=((X-y)**2).sum()
-# mse=np.mean((X-y)**2)
-# print("Final rmse value is =",np.sqrt(np.mean((X-y)**2)))
-
-AB_clf = AdaBoostClassifier(n_estimators=300, random_state=2)
-model = AB_clf.fit(train, train_labels)
-preds = AB_clf.predict(test)
-print(preds)
-print(accuracy_score(test_labels, preds))
-
-
-LOG_clf = linear_model.LogisticRegression(multi_class="ovr", solver="sag", class_weight="balanced")
-model = LOG_clf.fit(train, train_labels)
-preds = LOG_clf.predict(test)
-print(preds)
-print(accuracy_score(test_labels, preds))
-
-R_F = RandomForestClassifier(n_estimators=300, max_depth=3, random_state=2)
-model = R_F.fit(train, train_labels)
-preds = R_F.predict(test)
-print(preds)
-print(accuracy_score(test_labels, preds))
-scores = []
-num_features = len(train.columns)
-for i in range(num_features):
-    col = train.columns[i]
-    score = np.mean(cross_val_score(R_F, X[col].values.reshape(-1, 1), y, cv=10))
-    scores.append((int(score * 100), col))
-
-print(sorted(scores, reverse=True))
-
-
-svclassifier = SVC(kernel="linear")
-model = svclassifier.fit(train, train_labels)
-preds = svclassifier.predict(test)
-print(preds)
-print(accuracy_score(test_labels, preds))
+    svclassifier = SVC(kernel="linear")
+    svclassifier.fit(train, train_labels_split)
+    preds = svclassifier.predict(test)
+    print(preds)
+    print(accuracy_score(test_labels_split, preds))
 
 if __name__ == "__main__":
     # execute only if run as a script
