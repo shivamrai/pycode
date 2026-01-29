@@ -5,6 +5,9 @@ Note: timestamp parameter included for future time-based features.
 """
 
 
+from typing import Optional
+
+
 class BankAccount:
     """Represents a single bank account."""
 
@@ -37,7 +40,7 @@ class BankingSystem:
         self.accounts[account_id] = 0
         return True
 
-    def deposit(self, _timestamp: int, account_id: str, amount: int) -> int | None:
+    def deposit(self, _timestamp: int, account_id: str, amount: int) -> Optional[int]:
         """Deposit money into an account.
 
         Args:
@@ -59,7 +62,7 @@ class BankingSystem:
         source_account_id: str,
         target_account_id: str,
         amount: int,
-    ) -> int | None:
+    ) -> Optional[int]:
         """Transfer money between accounts.
 
         Args:
