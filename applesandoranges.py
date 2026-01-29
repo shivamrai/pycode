@@ -4,42 +4,45 @@
 # Complete the countApplesAndOranges function below.
 def count_apples_and_oranges(s, t, a, b, apples, oranges):
     """count_apples_and_oranges function."""
-    countofApples = 0
-    countofOranges = 0
-    for apple in range(len(apples)):
-        apples[apple] = apples[apple] + a
-    for orange in range(len(oranges)):
-        oranges[orange] = oranges[orange] + b
-    for apple in range(len(apples)):
-        if apples[apple] >= s and apples[apple] <= t:
-            countofApples = countofApples + 1
-    for orange in range(len(oranges)):
-        if oranges[orange] >= s and oranges[orange] <= t:
-            countofOranges = countofOranges + 1
-    print(countofApples, " ", countofOranges)
+    count_of_apples = 0
+    count_of_oranges = 0
+
+    # Adjust apple positions by offset 'a' and count those in range [s, t]
+    for apple_distance in apples:
+        adjusted_apple = apple_distance + a
+        if s <= adjusted_apple <= t:
+            count_of_apples += 1
+
+    # Adjust orange positions by offset 'b' and count those in range [s, t]
+    for orange_distance in oranges:
+        adjusted_orange = orange_distance + b
+        if s <= adjusted_orange <= t:
+            count_of_oranges += 1
+
+    print(count_of_apples, " ", count_of_oranges)
 
 
 if __name__ == "__main__":
     # st = input().split()
 
-    s = 7
+    s_val = 7
 
-    t = 11
+    t_val = 11
 
     # ab = input().split()
 
-    a = 5
+    a_val = 5
 
-    b = 15
+    b_val = 15
 
     # mn = input().split()
 
-    m = 3
+    m_val = 3
 
-    n = 2
+    n_val = 2
 
-    apples = [-2, 2, 1]
+    apples_list = [-2, 2, 1]
 
-    oranges = [5, -6]
+    oranges_list = [5, -6]
 
-    count_apples_and_oranges(s, t, a, b, apples, oranges)
+    count_apples_and_oranges(s_val, t_val, a_val, b_val, apples_list, oranges_list)
