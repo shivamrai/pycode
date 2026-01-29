@@ -47,11 +47,8 @@ class Solution:
 
         return root
 
-    def build_tree(
-        """build_tree function."""
-            self,
-            preorder: list[int],
-            inorder: list[int]) -> Optional[TreeNode]:
+    def build_tree(self, preorder: list[int], inorder: list[int]) -> Optional[TreeNode]:
+        """Build tree from preorder and inorder traversals."""
         if not preorder or not inorder:
             return None
         # preorder is: root, left, right
