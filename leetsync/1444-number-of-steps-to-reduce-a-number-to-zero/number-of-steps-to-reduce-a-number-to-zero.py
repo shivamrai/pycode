@@ -5,11 +5,9 @@ class Solution:
             if num%2==0:
                 num/=2
                 steps+=1
-                print(f"{num} {steps}")
             elif num==0:
                 break
             else:
                 num-=1
                 steps+=1
-                print(f"{num} {steps}")
         return steps
