@@ -1,5 +1,7 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        if len(ransomNote)>len(magazine):
+            return False
         mag_dict = {}
         for x in magazine:
             if x in mag_dict:
