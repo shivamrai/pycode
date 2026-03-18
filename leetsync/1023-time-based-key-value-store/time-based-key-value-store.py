@@ -11,10 +11,10 @@ class TimeMap:
         while low <= high:
             mid = (low + high) // 2
             if timestamps[mid][0] <= currtimestamp:
-                result = timestamps[mid][1]  # Valid candidate
-                low = mid + 1             # Search right for larger ts
+                result = timestamps[mid][1]
+                low = mid + 1             
             else:
-                high = mid - 1            # Search left
+                high = mid - 1
         return result
 
     def set(self, key: str, value: str, timestamp: int) -> None:
