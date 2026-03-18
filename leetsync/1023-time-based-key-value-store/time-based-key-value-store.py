@@ -4,7 +4,8 @@ class TimeMap:
     def __init__(self):
         self.time_map = defaultdict(list)
 
-    def __binary_key_search(self, currtimestamp: int, timestamps: list):
+    def _find_timestamp_index(self, currtimestamp: int, timestamps: list):
+        # binary search
         low = 0
         high = len(timestamps) - 1
         result = ""
@@ -23,7 +24,7 @@ class TimeMap:
     def get(self, key: str, timestamp: int) -> str:
         if key in self.time_map:
             values = self.time_map[key]  # Get the [(ts, val), ...] list
-            return self.__binary_key_search(timestamp, values)
+            return self._find_timestamp_index(timestamp, values)
         else:
             return ""
 
