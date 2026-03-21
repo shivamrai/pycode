@@ -9,4 +9,5 @@ class Solution:
             curr = prev + curr
             prev = temp
             i += 1
+
         return curr

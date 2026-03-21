@@ -7,9 +7,8 @@ class Solution:
         r = usable_money % 7
         if q > children:
             return children - 1
-        elif r > 0 and children == q:
+        if r > 0 and children == q:
             return children - 1
-        elif r == 3 and (children - q) == 1:    
+        if r == 3 and (children - q) == 1:
             return q - 1
-        else: 
-            return q
+        return q
