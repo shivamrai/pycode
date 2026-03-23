@@ -1,7 +1,7 @@
 class Solution:
 
     def _merge_overlap(self, intervals: List[int]) -> List[int]:
-        intervals.sort(key = lambda x: x[0]) #optional
+        intervals.sort(key = lambda x: x[0])
         res = [intervals[0]]  # Initialize result with first interval
         for i in range(1, len(intervals)):
             # Check if current interval overlaps with last merged interval
