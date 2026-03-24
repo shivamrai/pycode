@@ -3,8 +3,8 @@ class Solution:
         # If total gas is less than total cost, it's impossible
         if sum(gas) < sum(cost):
             return -1
-        start_point, total_tank, length_of_loop = 0, 0, len(gas)
-        for i in range(length_of_loop):
+        start_point, total_tank = 0, 0
+        for i in range(len(cost)):
             total_tank += gas[i] - cost[i]
             # If we run out of gas at this station
             if total_tank < 0:
