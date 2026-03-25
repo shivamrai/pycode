@@ -1,3 +1,4 @@
+from typing import List
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         low, high = 0, len(nums) - 1
@@ -5,7 +6,7 @@ class Solution:
             mid = (low+high) // 2
             if nums[mid] == target:
                 return mid
-            elif nums[mid] < target:
+            if nums[mid] < target:
                 low = mid + 1
             else:
                 high = mid - 1

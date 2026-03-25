@@ -1,6 +1,7 @@
+from typing import List
 class Solution:
 
-    def _merge_overlap(self, intervals: List[int]) -> List[int]:
+    def _merge_overlap(self, intervals: List[List[int]]) -> List[List[int]]:
         intervals.sort(key = lambda x: x[0])
         res = [intervals[0]]  # Initialize result with first interval
         for i in range(1, len(intervals)):
@@ -13,8 +14,8 @@ class Solution:
                 res.append(intervals[i])
         return res
 
-    def _split_into_intervals(self, s: str, words: List[str]) -> List[int]:
-        intervals = []
+    def _split_into_intervals(self, s: str, words: List[str]) -> List[List[int]]:
+        intervals: List[List[int]] = []
         for word in words:
             start = s.find(word)
             while start != -1:
@@ -33,7 +34,7 @@ class Solution:
 
         merged_intervals = self._merge_overlap(intervals)
 
-        result = []
+        result: List[str] = []
         prev_end = 0
         for start, end in merged_intervals:
             result.append(s[prev_end:start])  # Add non-bold part

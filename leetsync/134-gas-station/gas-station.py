@@ -1,11 +1,13 @@
+from typing import List
+
 class Solution:
     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
         # If total gas is less than total cost, it's impossible
         if sum(gas) < sum(cost):
             return -1
         start_point, total_tank = 0, 0
-        for i in range(len(cost)):
-            total_tank += gas[i] - cost[i]
+        for i,x in enumerate(gas):
+            total_tank += x - cost[i]
             # If we run out of gas at this station
             if total_tank < 0:
                 # Pick the NEXT station as the new starting point
