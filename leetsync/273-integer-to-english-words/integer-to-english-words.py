@@ -2,14 +2,44 @@ class Solution:
 
     def __init__(self):
         # Define word mappings for numbers below 20
-        self.below_20 = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", 
-                    "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", 
-                    "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
+        self.below_20 = [
+            "",
+            "One",
+            "Two",
+            "Three",
+            "Four",
+            "Five",
+            "Six",
+            "Seven",
+            "Eight",
+            "Nine",
+            "Ten",
+            "Eleven",
+            "Twelve",
+            "Thirteen",
+            "Fourteen",
+            "Fifteen",
+            "Sixteen",
+            "Seventeen",
+            "Eighteen",
+            "Nineteen",
+        ]
         # Define word mappings for tens (20, 30, 40, etc.)
-        self.tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
+        self.tens = [
+            "",
+            "",
+            "Twenty",
+            "Thirty",
+            "Forty",
+            "Fifty",
+            "Sixty",
+            "Seventy",
+            "Eighty",
+            "Ninety",
+        ]
         # Define scale words for thousands, millions, billions
         self.thousands = ["", "Thousand", "Million", "Billion"]
-            
+
     def _helper(self, n) -> str:
         # Helper function to convert numbers less than 1000 to words
         if n == 0:
@@ -28,11 +58,11 @@ class Solution:
     def numberToWords(self, num: int) -> str:
         if num == 0:
             return "Zero"
-        
+
         result = ""
         # Initialize index for thousands scale
         i = 0
-        
+
         # Process number in chunks of 1000
         while num > 0:
             # Check if current chunk (last 3 digits) is non-zero
@@ -43,7 +73,6 @@ class Solution:
             num //= 1000
             # Increment scale index
             i += 1
-        
+
         # Remove trailing spaces and return
         return result.strip()
-   
