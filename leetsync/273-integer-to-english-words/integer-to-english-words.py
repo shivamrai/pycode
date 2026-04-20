@@ -45,10 +45,10 @@ class Solution:
         if n == 0:
             # Return empty string for zero
             return ""
-        elif n < 20:
+        if n < 20:
             # Use below_20 array for numbers 1-19
             return self.below_20[n] + " "
-        elif n < 100:
+        if n < 100:
             # For numbers 20-99, combine tens word with recursive call for ones
             return self.tens[n // 10] + " " + self._helper(n % 10)
         else:
@@ -76,3 +76,10 @@ class Solution:
 
         # Remove trailing spaces and return
         return result.strip()
+
+
+if __name__ == "__main__":
+    sol = Solution()
+    test_cases = [123, 12345, 1234567, 1234567891, 0]
+    for num in test_cases:
+        print(f"{num} -> {sol.numberToWords(num)}")
