@@ -51,12 +51,11 @@ class Solution:
         if n < 100:
             # For numbers 20-99, combine tens word with recursive call for ones
             return self.tens[n // 10] + " " + self._helper(n % 10)
-        else:
-            # For numbers 100-999, add "Hundred" and recursively process remainder
-            return self.below_20[n // 100] + " Hundred " + self._helper(n % 100)
+        # For numbers 100-999, add "Hundred" and recursively process remainder
+        return self.below_20[n // 100] + " Hundred " + self._helper(n % 100)
 
-    def numberToWords(self, num: int) -> str:
-        if num == 0:
+    def numberToWords(self, number: int) -> str:
+        if number == 0:
             return "Zero"
 
         result = ""
@@ -64,13 +63,13 @@ class Solution:
         i = 0
 
         # Process number in chunks of 1000
-        while num > 0:
+        while number > 0:
             # Check if current chunk (last 3 digits) is non-zero
-            if num % 1000 != 0:
+            if number % 1000 != 0:
                 # Convert current chunk to words and prepend to result
-                result = self._helper(num % 1000) + self.thousands[i] + " " + result
+                result = self._helper(number % 1000) + self.thousands[i] + " " + result
             # Move to next chunk by dividing by 1000
-            num //= 1000
+            number //= 1000
             # Increment scale index
             i += 1
 
